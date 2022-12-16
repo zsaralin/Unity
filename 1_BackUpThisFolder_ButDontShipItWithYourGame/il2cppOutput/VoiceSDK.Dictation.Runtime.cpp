@@ -1368,6 +1368,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationSession__ctor_mB06042F3771B2AFA
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 WitDictationRuntimeConfiguration_get_RecordingTimeRange_mFD248A8F73020F62CF50BED7B49CBFB798C1ABE0 (WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* __this, const RuntimeMethod* method) 
 {
 	{
+		// protected override Vector2 RecordingTimeRange => new Vector2(-1, 300);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_0;
 		memset((&L_0), 0, sizeof(L_0));
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&L_0), (-1.0f), (300.0f), /*hidden argument*/NULL);
@@ -1400,6 +1401,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool MicPermissionsManager_HasMicPermission_m
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// return Permission.HasUserAuthorizedPermission(Permission.Microphone);
 		bool L_0;
 		L_0 = Permission_HasUserAuthorizedPermission_mF4C90E13124E28F6F672200E489CC25A9B645B8B(_stringLiteral6D2C56060B3F7353031AD314517C27945CC39748, NULL);
 		return L_0;
@@ -1415,7 +1417,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MicPermissionsManager_RequestMicPermissi
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// Permission.RequestUserPermission(Permission.Microphone);
 		Permission_RequestUserPermission_mF9CF3A21AAF34B311137C4D00B3AD6A6C2694242(_stringLiteral6D2C56060B3F7353031AD314517C27945CC39748, NULL);
+		// }
 		return;
 	}
 }
@@ -1439,6 +1443,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MicPermissionsManager__ctor_m63228DF0B9E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* AppDictationExperience_get_RuntimeConfiguration_mA7C2FE3556F04FD22872B8D36C7F6A4AEE00090B (AppDictationExperience_t98BF0BE35FF8640B3D7F63323F222AC5B7242F42* __this, const RuntimeMethod* method) 
 {
 	{
+		// get => runtimeConfiguration;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0 = __this->___runtimeConfiguration_5;
 		return L_0;
 	}
@@ -1447,6 +1452,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitDictationRuntimeConfiguration_t855B01BA508
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_set_RuntimeConfiguration_m014583C6A2954BA2A9329142853C9D5C04C8F2C3 (AppDictationExperience_t98BF0BE35FF8640B3D7F63323F222AC5B7242F42* __this, WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* ___value0, const RuntimeMethod* method) 
 {
 	{
+		// set => runtimeConfiguration = value;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0 = ___value0;
 		__this->___runtimeConfiguration_5 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___runtimeConfiguration_5), (void*)L_0);
@@ -1549,6 +1555,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AppDictationExperience_get_HasPlatformIn
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public bool HasPlatformIntegrations => usePlatformServices && _dictationServiceImpl is PlatformDictationImpl;
 		bool L_0 = __this->___usePlatformServices_6;
 		if (!L_0)
 		{
@@ -1569,6 +1576,7 @@ IL_0017:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AppDictationExperience_get_UsePlatformIntegrations_m8E4B2F994E436137A770CCF57210979647297835 (AppDictationExperience_t98BF0BE35FF8640B3D7F63323F222AC5B7242F42* __this, const RuntimeMethod* method) 
 {
 	{
+		// get => usePlatformServices;
 		bool L_0 = __this->___usePlatformServices_6;
 		return L_0;
 	}
@@ -1587,6 +1595,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_set_UsePlatformIn
 	}
 	String_t* G_B5_0 = NULL;
 	{
+		// if (usePlatformServices != value || HasPlatformIntegrations != value)
 		bool L_0 = __this->___usePlatformServices_6;
 		bool L_1 = ___value0;
 		if ((!(((uint32_t)L_0) == ((uint32_t)L_1))))
@@ -1606,8 +1615,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_set_UsePlatformIn
 
 IL_0012:
 	{
+		// usePlatformServices = value;
 		bool L_4 = ___value0;
 		__this->___usePlatformServices_6 = L_4;
+		// Debug.Log($"{(usePlatformServices ? "Enabling" : "Disabling")} platform integration.");
 		bool L_5 = __this->___usePlatformServices_6;
 		if (L_5)
 		{
@@ -1630,11 +1641,13 @@ IL_002d:
 		L_6 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(G_B5_0, _stringLiteral62B962D58D79AB658276228C081F11858A78D27B, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_6, NULL);
+		// InitDictation();
 		AppDictationExperience_InitDictation_m344E3985F74EC73B8BE8D548D4E43E65D9BF25FB(__this, NULL);
 	}
 
 IL_0042:
 	{
+		// }
 		return;
 	}
 }
@@ -1663,6 +1676,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_InitDictation_m34
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* G_B10_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* G_B9_0 = NULL;
 	{
+		// if (!UsePlatformIntegrations && _dictationServiceImpl is PlatformDictationImpl)
 		bool L_0;
 		L_0 = AppDictationExperience_get_UsePlatformIntegrations_m8E4B2F994E436137A770CCF57210979647297835_inline(__this, NULL);
 		if (L_0)
@@ -1678,6 +1692,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_InitDictation_m34
 		}
 	}
 	{
+		// ((PlatformDictationImpl) _dictationServiceImpl).Disconnect();
 		RuntimeObject* L_2 = __this->____dictationServiceImpl_8;
 		NullCheck(((PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED*)CastclassClass((RuntimeObject*)L_2, PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED_il2cpp_TypeInfo_var)));
 		VirtualActionInvoker0::Invoke(5 /* System.Void Oculus.Voice.Core.Bindings.Android.BaseAndroidConnectionImpl`1<Oculus.Voice.Dictation.Bindings.Android.PlatformDictationSDKBinding>::Disconnect() */, ((PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED*)CastclassClass((RuntimeObject*)L_2, PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED_il2cpp_TypeInfo_var)));
@@ -1685,17 +1700,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_InitDictation_m34
 
 IL_0025:
 	{
+		// var loggerImpl = new VoiceSDKPlatformLoggerImpl();
 		VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993* L_3 = (VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993*)il2cpp_codegen_object_new(VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993_il2cpp_TypeInfo_var);
 		NullCheck(L_3);
 		VoiceSDKPlatformLoggerImpl__ctor_mB98388D0B9F59FF41DA4D886AF2BE550F914E2DF(L_3, NULL);
 		V_0 = L_3;
+		// loggerImpl.Connect(PACKAGE_VERSION);
 		VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993* L_4 = V_0;
 		String_t* L_5 = __this->___PACKAGE_VERSION_11;
 		NullCheck(L_4);
 		VirtualActionInvoker1< String_t* >::Invoke(4 /* System.Void Oculus.Voice.Core.Bindings.Android.BaseAndroidConnectionImpl`1<Oculus.Voice.Core.Bindings.Android.PlatformLogger.VoiceSDKLoggerBinding>::Connect(System.String) */, L_4, L_5);
+		// _voiceSDKLogger = loggerImpl;
 		VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993* L_6 = V_0;
 		__this->____voiceSDKLogger_9 = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____voiceSDKLogger_9), (void*)L_6);
+		// if (UsePlatformIntegrations)
 		bool L_7;
 		L_7 = AppDictationExperience_get_UsePlatformIntegrations_m8E4B2F994E436137A770CCF57210979647297835_inline(__this, NULL);
 		if (!L_7)
@@ -1704,12 +1723,15 @@ IL_0025:
 		}
 	}
 	{
+		// Debug.Log("Checking platform dictation capabilities...");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(_stringLiteralA829E470D52A5E1BCDE6A65AF89257CE29A466AF, NULL);
+		// var platformDictationImpl = new PlatformDictationImpl(this);
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_8 = (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED*)il2cpp_codegen_object_new(PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED_il2cpp_TypeInfo_var);
 		NullCheck(L_8);
 		PlatformDictationImpl__ctor_m1DEF5481D39DC4ACC21B1E75B27BF6A62F39A378(L_8, __this, NULL);
 		V_1 = L_8;
+		// platformDictationImpl.OnServiceNotAvailableEvent += RevertToWitDictation;
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_9 = V_1;
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_10 = L_9;
 		NullCheck(L_10);
@@ -1722,10 +1744,12 @@ IL_0025:
 		NullCheck(L_10);
 		L_10->___OnServiceNotAvailableEvent_8 = ((Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07*)CastclassSealed((RuntimeObject*)L_13, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07_il2cpp_TypeInfo_var));
 		Il2CppCodeGenWriteBarrier((void**)(&L_10->___OnServiceNotAvailableEvent_8), (void*)((Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07*)CastclassSealed((RuntimeObject*)L_13, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07_il2cpp_TypeInfo_var)));
+		// platformDictationImpl.Connect(PACKAGE_VERSION);
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_14 = V_1;
 		String_t* L_15 = __this->___PACKAGE_VERSION_11;
 		NullCheck(L_14);
 		VirtualActionInvoker1< String_t* >::Invoke(4 /* System.Void Oculus.Voice.Core.Bindings.Android.BaseAndroidConnectionImpl`1<Oculus.Voice.Dictation.Bindings.Android.PlatformDictationSDKBinding>::Connect(System.String) */, L_14, L_15);
+		// if (platformDictationImpl.PlatformSupportsDictation)
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_16 = V_1;
 		NullCheck(L_16);
 		bool L_17;
@@ -1736,24 +1760,30 @@ IL_0025:
 		}
 	}
 	{
+		// _dictationServiceImpl = platformDictationImpl;
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_18 = V_1;
 		__this->____dictationServiceImpl_8 = L_18;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationServiceImpl_8), (void*)L_18);
+		// _dictationServiceImpl.DictationEvents = DictationEvents;
 		RuntimeObject* L_19 = __this->____dictationServiceImpl_8;
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_20;
 		L_20 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_19);
 		InterfaceActionInvoker1< DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* >::Invoke(6 /* System.Void Facebook.WitAi.Dictation.IDictationService::set_DictationEvents(Facebook.WitAi.Dictation.Events.DictationEvents) */, IDictationService_tCFFF87F3645430C648FD3D0D9BEE2315E94508FC_il2cpp_TypeInfo_var, L_19, L_20);
+		// platformDictationImpl.SetDictationRuntimeConfiguration(RuntimeConfiguration);
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_21 = V_1;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_22;
 		L_22 = AppDictationExperience_get_RuntimeConfiguration_mA7C2FE3556F04FD22872B8D36C7F6A4AEE00090B_inline(__this, NULL);
 		NullCheck(L_21);
 		PlatformDictationImpl_SetDictationRuntimeConfiguration_m41A9AFE899A26FBB02B249864C508BE3BAAB2F5D_inline(L_21, L_22, NULL);
+		// Debug.Log("Dictation platform init complete");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(_stringLiteral56E839DE5BBB0D765B7A3992FA9FE1A49C1CECF8, NULL);
+		// _voiceSDKLogger.LogAnnotation("isUsingPlatformSupport", "true");
 		RuntimeObject* L_23 = __this->____voiceSDKLogger_9;
 		NullCheck(L_23);
 		InterfaceActionInvoker2< String_t*, String_t* >::Invoke(10 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogAnnotation(System.String,System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_23, _stringLiteral50BE44CEF08FC4DEB6594B608A0E61B5673C4532, _stringLiteralB7C45DD316C68ABF3429C20058C2981C652192F2);
+		// _voiceSDKLogger.IsUsingPlatformIntegration = true;
 		RuntimeObject* L_24 = __this->____voiceSDKLogger_9;
 		NullCheck(L_24);
 		InterfaceActionInvoker1< bool >::Invoke(1 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::set_IsUsingPlatformIntegration(System.Boolean) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_24, (bool)1);
@@ -1762,19 +1792,24 @@ IL_0025:
 
 IL_00e1:
 	{
+		// Debug.Log("Platform dictation service unavailable. Falling back to WitDictation");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(_stringLiteral95C23808B9E62CA71510CCBAC213B2985E5590F6, NULL);
+		// RevertToWitDictation();
 		AppDictationExperience_RevertToWitDictation_m52DCF19FE49B2A56B218E560FAFE2C6A0BCB5042(__this, NULL);
 		goto IL_00f9;
 	}
 
 IL_00f3:
 	{
+		// RevertToWitDictation();
 		AppDictationExperience_RevertToWitDictation_m52DCF19FE49B2A56B218E560FAFE2C6A0BCB5042(__this, NULL);
 	}
 
 IL_00f9:
 	{
+		// _voiceSDKLogger.WitApplication =
+		//     RuntimeConfiguration.witConfiguration.WitApplicationId;
 		RuntimeObject* L_25 = __this->____voiceSDKLogger_9;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_26;
 		L_26 = AppDictationExperience_get_RuntimeConfiguration_mA7C2FE3556F04FD22872B8D36C7F6A4AEE00090B_inline(__this, NULL);
@@ -1785,10 +1820,12 @@ IL_00f9:
 		L_28 = WitConfiguration_get_WitApplicationId_m6634CD56C438E238FC8619A3AF08F33733D0F0B1(L_27, NULL);
 		NullCheck(L_25);
 		InterfaceActionInvoker1< String_t* >::Invoke(5 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::set_WitApplication(System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_25, L_28);
+		// _voiceSDKLogger.ShouldLogToConsole = enableConsoleLogging;
 		RuntimeObject* L_29 = __this->____voiceSDKLogger_9;
 		bool L_30 = __this->___enableConsoleLogging_7;
 		NullCheck(L_29);
 		InterfaceActionInvoker1< bool >::Invoke(3 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::set_ShouldLogToConsole(System.Boolean) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_29, L_30);
+		// OnInitialized?.Invoke();
 		Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_31 = __this->___OnInitialized_10;
 		Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_32 = L_31;
 		G_B9_0 = L_32;
@@ -1806,6 +1843,7 @@ IL_0130:
 	{
 		NullCheck(G_B10_0);
 		Action_Invoke_m7126A54DACA72B845424072887B5F3A51FC3808E_inline(G_B10_0, NULL);
+		// }
 		return;
 	}
 }
@@ -1825,9 +1863,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_RevertToWitDictat
 	}
 	WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* V_0 = NULL;
 	{
+		// WitDictation witDictation = GetComponent<WitDictation>();
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_0;
 		L_0 = Component_GetComponent_TisWitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C_m6EEE1264B8B7E9D5E514CE1D234F71538CFD6B62(__this, Component_GetComponent_TisWitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C_m6EEE1264B8B7E9D5E514CE1D234F71538CFD6B62_RuntimeMethod_var);
 		V_0 = L_0;
+		// if (null == witDictation)
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_1 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_2;
@@ -1838,12 +1878,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_RevertToWitDictat
 		}
 	}
 	{
+		// witDictation = gameObject.AddComponent<WitDictation>();
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3;
 		L_3 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_3);
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_4;
 		L_4 = GameObject_AddComponent_TisWitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C_m1831BA0DBA00EF485A274D700800E627269B6B1A(L_3, GameObject_AddComponent_TisWitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C_m1831BA0DBA00EF485A274D700800E627269B6B1A_RuntimeMethod_var);
 		V_0 = L_4;
+		// witDictation.hideFlags = HideFlags.HideInInspector;
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_5 = V_0;
 		NullCheck(L_5);
 		Object_set_hideFlags_mACB8BFC903FB3B01BBD427753E791BF28B5E33D4(L_5, 2, NULL);
@@ -1851,24 +1893,30 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_RevertToWitDictat
 
 IL_0023:
 	{
+		// witDictation.RuntimeConfiguration = this.RuntimeConfiguration;
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_6 = V_0;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_7;
 		L_7 = AppDictationExperience_get_RuntimeConfiguration_mA7C2FE3556F04FD22872B8D36C7F6A4AEE00090B_inline(__this, NULL);
 		NullCheck(L_6);
 		WitDictation_set_RuntimeConfiguration_mC6B7E5C0D6BBD1C13FB994B56C080935A06B9BFA_inline(L_6, L_7, NULL);
+		// witDictation.DictationEvents = DictationEvents;
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_8 = V_0;
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_9;
 		L_9 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_8);
 		DictationService_set_DictationEvents_mA5C509FC7303384C74DCF172DC8398914504370F_inline(L_8, L_9, NULL);
+		// _dictationServiceImpl = witDictation;
 		WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* L_10 = V_0;
 		__this->____dictationServiceImpl_8 = L_10;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationServiceImpl_8), (void*)L_10);
+		// Debug.Log("WitDictation init complete");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(_stringLiteral57295FB5294EDE32B96C3B48EEDBAED0915E8B53, NULL);
+		// _voiceSDKLogger.IsUsingPlatformIntegration = false;
 		RuntimeObject* L_11 = __this->____voiceSDKLogger_9;
 		NullCheck(L_11);
 		InterfaceActionInvoker1< bool >::Invoke(1 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::set_IsUsingPlatformIntegration(System.Boolean) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_11, (bool)0);
+		// }
 		return;
 	}
 }
@@ -1893,7 +1941,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnEnable_mAE6A041
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// base.OnEnable();
 		DictationService_OnEnable_mC8C6B7CFB37890F99B0D978C63CB9DCE6EA1A105(__this, NULL);
+		// if (MicPermissionsManager.HasMicPermission())
 		bool L_0;
 		L_0 = MicPermissionsManager_HasMicPermission_mF971DBE64875CE8D6229C316449B233F418BD226(NULL);
 		if (!L_0)
@@ -1902,17 +1952,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnEnable_mAE6A041
 		}
 	}
 	{
+		// InitDictation();
 		AppDictationExperience_InitDictation_m344E3985F74EC73B8BE8D548D4E43E65D9BF25FB(__this, NULL);
 		goto IL_001a;
 	}
 
 IL_0015:
 	{
+		// MicPermissionsManager.RequestMicPermission();
 		MicPermissionsManager_RequestMicPermission_m6DE7AB30E29FB50A9423F1091FFF526E177760ED(NULL);
 	}
 
 IL_001a:
 	{
+		// DictationEvents.onStart.AddListener(OnStarted);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_1;
 		L_1 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_1);
@@ -1922,6 +1975,7 @@ IL_001a:
 		UnityAction__ctor_mC53E20D6B66E0D5688CD81B88DBB34F5A58B7131(L_3, __this, (intptr_t)((void*)AppDictationExperience_OnStarted_m73CF1EFFB3BDC9914BC4B347064983912EC062D2_RuntimeMethod_var), NULL);
 		NullCheck(L_2);
 		UnityEvent_AddListener_m8AA4287C16628486B41DA41CA5E7A856A706D302(L_2, L_3, NULL);
+		// DictationEvents.onStopped.AddListener(OnStopped);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_4;
 		L_4 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_4);
@@ -1931,6 +1985,7 @@ IL_001a:
 		UnityAction__ctor_mC53E20D6B66E0D5688CD81B88DBB34F5A58B7131(L_6, __this, (intptr_t)((void*)AppDictationExperience_OnStopped_mBD5D5A0D08F3752A36203081EBE18EC3258C6D72_RuntimeMethod_var), NULL);
 		NullCheck(L_5);
 		UnityEvent_AddListener_m8AA4287C16628486B41DA41CA5E7A856A706D302(L_5, L_6, NULL);
+		// DictationEvents.onResponse.AddListener(OnWitResponseListener);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_7;
 		L_7 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_7);
@@ -1940,6 +1995,7 @@ IL_001a:
 		UnityAction_1__ctor_mF4F621DB3C8F308CF78411309EDFD1334CF9CE75(L_9, __this, (intptr_t)((void*)AppDictationExperience_OnWitResponseListener_m79EA774E3E06A4477FD643BB01C200CBBE642940_RuntimeMethod_var), NULL);
 		NullCheck(L_8);
 		UnityEvent_1_AddListener_mAAD4F26F685871E030131375B05060E33216E0C3(L_8, L_9, UnityEvent_1_AddListener_mAAD4F26F685871E030131375B05060E33216E0C3_RuntimeMethod_var);
+		// DictationEvents.onError.AddListener(OnError);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_10;
 		L_10 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_10);
@@ -1949,6 +2005,7 @@ IL_001a:
 		UnityAction_2__ctor_m1C937A45A2857F3199CB7182AD45A0D2AEA0A2BF(L_12, __this, (intptr_t)((void*)AppDictationExperience_OnError_mC8BF7088C5D4FE8374B532E63447E32DE30D6FFA_RuntimeMethod_var), NULL);
 		NullCheck(L_11);
 		UnityEvent_2_AddListener_m1F3FE6BD9D4A9C57206FB67E9CE9C277BF3557DE(L_11, L_12, UnityEvent_2_AddListener_m1F3FE6BD9D4A9C57206FB67E9CE9C277BF3557DE_RuntimeMethod_var);
+		// DictationEvents.onDictationSessionStarted.AddListener(OnDictationSessionStarted);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_13;
 		L_13 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_13);
@@ -1958,6 +2015,7 @@ IL_001a:
 		UnityAction_1__ctor_mCBF0361AD8CA6AA6874E94A78A5F3F363D3CB26D(L_15, __this, (intptr_t)((void*)AppDictationExperience_OnDictationSessionStarted_m566AF6EABADE2B41722BC3C4F0FAF8AB48D85987_RuntimeMethod_var), NULL);
 		NullCheck(L_14);
 		UnityEvent_1_AddListener_mD7AEC21B8C088D2C77DBE4F021CDEA1901E399AF(L_14, L_15, UnityEvent_1_AddListener_mD7AEC21B8C088D2C77DBE4F021CDEA1901E399AF_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -1986,6 +2044,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnDisable_m699870
 	PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* V_0 = NULL;
 	VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993* V_1 = NULL;
 	{
+		// if (_dictationServiceImpl is PlatformDictationImpl platformDictationImpl)
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		V_0 = ((PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED*)IsInstClass((RuntimeObject*)L_0, PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED_il2cpp_TypeInfo_var));
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_1 = V_0;
@@ -1995,6 +2054,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnDisable_m699870
 		}
 	}
 	{
+		// platformDictationImpl.Disconnect();
 		PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* L_2 = V_0;
 		NullCheck(L_2);
 		VirtualActionInvoker0::Invoke(5 /* System.Void Oculus.Voice.Core.Bindings.Android.BaseAndroidConnectionImpl`1<Oculus.Voice.Dictation.Bindings.Android.PlatformDictationSDKBinding>::Disconnect() */, L_2);
@@ -2002,6 +2062,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnDisable_m699870
 
 IL_0015:
 	{
+		// if (_voiceSDKLogger is VoiceSDKPlatformLoggerImpl loggerImpl)
 		RuntimeObject* L_3 = __this->____voiceSDKLogger_9;
 		V_1 = ((VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993*)IsInstClass((RuntimeObject*)L_3, VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993_il2cpp_TypeInfo_var));
 		VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993* L_4 = V_1;
@@ -2011,6 +2072,7 @@ IL_0015:
 		}
 	}
 	{
+		// loggerImpl.Disconnect();
 		VoiceSDKPlatformLoggerImpl_tBAA8C01C9FBD0E25B084121DD1701BC00F0E0993* L_5 = V_1;
 		NullCheck(L_5);
 		VirtualActionInvoker0::Invoke(5 /* System.Void Oculus.Voice.Core.Bindings.Android.BaseAndroidConnectionImpl`1<Oculus.Voice.Core.Bindings.Android.PlatformLogger.VoiceSDKLoggerBinding>::Disconnect() */, L_5);
@@ -2018,8 +2080,10 @@ IL_0015:
 
 IL_002a:
 	{
+		// _dictationServiceImpl = null;
 		__this->____dictationServiceImpl_8 = (RuntimeObject*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationServiceImpl_8), (void*)(RuntimeObject*)NULL);
+		// DictationEvents.onStart.RemoveListener(OnStarted);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_6;
 		L_6 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_6);
@@ -2029,6 +2093,7 @@ IL_002a:
 		UnityAction__ctor_mC53E20D6B66E0D5688CD81B88DBB34F5A58B7131(L_8, __this, (intptr_t)((void*)AppDictationExperience_OnStarted_m73CF1EFFB3BDC9914BC4B347064983912EC062D2_RuntimeMethod_var), NULL);
 		NullCheck(L_7);
 		UnityEvent_RemoveListener_m0E138F5575CB4363019D3DA570E98FAD502B812C(L_7, L_8, NULL);
+		// DictationEvents.onStopped.RemoveListener(OnStopped);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_9;
 		L_9 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_9);
@@ -2038,6 +2103,7 @@ IL_002a:
 		UnityAction__ctor_mC53E20D6B66E0D5688CD81B88DBB34F5A58B7131(L_11, __this, (intptr_t)((void*)AppDictationExperience_OnStopped_mBD5D5A0D08F3752A36203081EBE18EC3258C6D72_RuntimeMethod_var), NULL);
 		NullCheck(L_10);
 		UnityEvent_RemoveListener_m0E138F5575CB4363019D3DA570E98FAD502B812C(L_10, L_11, NULL);
+		// DictationEvents.onResponse.RemoveListener(OnWitResponseListener);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_12;
 		L_12 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_12);
@@ -2047,6 +2113,7 @@ IL_002a:
 		UnityAction_1__ctor_mF4F621DB3C8F308CF78411309EDFD1334CF9CE75(L_14, __this, (intptr_t)((void*)AppDictationExperience_OnWitResponseListener_m79EA774E3E06A4477FD643BB01C200CBBE642940_RuntimeMethod_var), NULL);
 		NullCheck(L_13);
 		UnityEvent_1_RemoveListener_m696D0B92F65BCDA59D7C1EEA56EF4B017BFE607B(L_13, L_14, UnityEvent_1_RemoveListener_m696D0B92F65BCDA59D7C1EEA56EF4B017BFE607B_RuntimeMethod_var);
+		// DictationEvents.onError.RemoveListener(OnError);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_15;
 		L_15 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_15);
@@ -2056,6 +2123,7 @@ IL_002a:
 		UnityAction_2__ctor_m1C937A45A2857F3199CB7182AD45A0D2AEA0A2BF(L_17, __this, (intptr_t)((void*)AppDictationExperience_OnError_mC8BF7088C5D4FE8374B532E63447E32DE30D6FFA_RuntimeMethod_var), NULL);
 		NullCheck(L_16);
 		UnityEvent_2_RemoveListener_mF064823D14A8A7CC3CE23E401348A847A18FF7CF(L_16, L_17, UnityEvent_2_RemoveListener_mF064823D14A8A7CC3CE23E401348A847A18FF7CF_RuntimeMethod_var);
+		// DictationEvents.onDictationSessionStarted.RemoveListener(OnDictationSessionStarted);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_18;
 		L_18 = DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline(__this, NULL);
 		NullCheck(L_18);
@@ -2065,7 +2133,9 @@ IL_002a:
 		UnityAction_1__ctor_mCBF0361AD8CA6AA6874E94A78A5F3F363D3CB26D(L_20, __this, (intptr_t)((void*)AppDictationExperience_OnDictationSessionStarted_m566AF6EABADE2B41722BC3C4F0FAF8AB48D85987_RuntimeMethod_var), NULL);
 		NullCheck(L_19);
 		UnityEvent_1_RemoveListener_mD1DD8DA473C1211A91A010CC79A8A467AB40811A(L_19, L_20, UnityEvent_1_RemoveListener_mD1DD8DA473C1211A91A010CC79A8A467AB40811A_RuntimeMethod_var);
+		// base.OnDisable();
 		DictationService_OnDisable_m8F1F6279FA72CB4EE1D7799FBDC63418D0BAAD36(__this, NULL);
+		// }
 		return;
 	}
 }
@@ -2079,6 +2149,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AppDictationExperience_get_Active_m5CECE
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public override bool Active => _dictationServiceImpl != null && _dictationServiceImpl.Active;
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		if (!L_0)
 		{
@@ -2108,6 +2179,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AppDictationExperience_get_IsRequestActi
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public override bool IsRequestActive => _dictationServiceImpl != null && _dictationServiceImpl.IsRequestActive;
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		if (!L_0)
 		{
@@ -2137,6 +2209,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AppDictationExperience_get_Tra
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// get => _dictationServiceImpl.TranscriptionProvider;
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		NullCheck(L_0);
 		RuntimeObject* L_1;
@@ -2154,6 +2227,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_set_Transcription
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// set => _dictationServiceImpl.TranscriptionProvider = value;
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		RuntimeObject* L_1 = ___value0;
 		NullCheck(L_0);
@@ -2171,6 +2245,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AppDictationExperience_get_MicActive_m54
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public override bool MicActive => null != _dictationServiceImpl && _dictationServiceImpl.MicActive;
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		if (!L_0)
 		{
@@ -2194,6 +2269,8 @@ IL_0014:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool AppDictationExperience_get_ShouldSendMicData_mE01D5D8E58899B4DA9FA0E14FF5BE07E64217F6F (AppDictationExperience_t98BF0BE35FF8640B3D7F63323F222AC5B7242F42* __this, const RuntimeMethod* method) 
 {
 	{
+		// protected override bool ShouldSendMicData => RuntimeConfiguration.sendAudioToWit ||
+		//                                              null == TranscriptionProvider;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0;
 		L_0 = AppDictationExperience_get_RuntimeConfiguration_mA7C2FE3556F04FD22872B8D36C7F6A4AEE00090B_inline(__this, NULL);
 		NullCheck(L_0);
@@ -2224,10 +2301,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_Activate_m4B6A836
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// Activate(new WitRequestOptions());
 		WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* L_0 = (WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49*)il2cpp_codegen_object_new(WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
 		WitRequestOptions__ctor_mC268FEEBCAC2DABEED5ED9C53109E02EE3189F48(L_0, NULL);
 		VirtualActionInvoker1< WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* >::Invoke(25 /* System.Void Facebook.WitAi.Dictation.DictationService::Activate(Facebook.WitAi.Configuration.WitRequestOptions) */, __this, L_0);
+		// }
 		return;
 	}
 }
@@ -2243,16 +2322,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_Activate_mA2B85FE
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _voiceSDKLogger.LogInteractionStart(requestOptions.requestID, "dictation");
 		RuntimeObject* L_0 = __this->____voiceSDKLogger_9;
 		WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* L_1 = ___requestOptions0;
 		NullCheck(L_1);
 		String_t* L_2 = L_1->___requestID_3;
 		NullCheck(L_0);
 		InterfaceActionInvoker2< String_t*, String_t* >::Invoke(6 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionStart(System.String,System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_0, L_2, _stringLiteral24A11203BE0B847E4A17BDD8D12EA3B8E5F4101F);
+		// _dictationServiceImpl.Activate(requestOptions);
 		RuntimeObject* L_3 = __this->____dictationServiceImpl_8;
 		WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* L_4 = ___requestOptions0;
 		NullCheck(L_3);
 		InterfaceActionInvoker1< WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* >::Invoke(8 /* System.Void Facebook.WitAi.Dictation.IDictationService::Activate(Facebook.WitAi.Configuration.WitRequestOptions) */, IDictationService_tCFFF87F3645430C648FD3D0D9BEE2315E94508FC_il2cpp_TypeInfo_var, L_3, L_4);
+		// }
 		return;
 	}
 }
@@ -2266,10 +2348,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_ActivateImmediate
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// ActivateImmediately(new WitRequestOptions());
 		WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* L_0 = (WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49*)il2cpp_codegen_object_new(WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
 		WitRequestOptions__ctor_mC268FEEBCAC2DABEED5ED9C53109E02EE3189F48(L_0, NULL);
 		VirtualActionInvoker1< WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* >::Invoke(27 /* System.Void Facebook.WitAi.Dictation.DictationService::ActivateImmediately(Facebook.WitAi.Configuration.WitRequestOptions) */, __this, L_0);
+		// }
 		return;
 	}
 }
@@ -2285,16 +2369,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_ActivateImmediate
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _voiceSDKLogger.LogInteractionStart(requestOptions.requestID, "dictation");
 		RuntimeObject* L_0 = __this->____voiceSDKLogger_9;
 		WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* L_1 = ___requestOptions0;
 		NullCheck(L_1);
 		String_t* L_2 = L_1->___requestID_3;
 		NullCheck(L_0);
 		InterfaceActionInvoker2< String_t*, String_t* >::Invoke(6 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionStart(System.String,System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_0, L_2, _stringLiteral24A11203BE0B847E4A17BDD8D12EA3B8E5F4101F);
+		// _dictationServiceImpl.ActivateImmediately(requestOptions);
 		RuntimeObject* L_3 = __this->____dictationServiceImpl_8;
 		WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* L_4 = ___requestOptions0;
 		NullCheck(L_3);
 		InterfaceActionInvoker1< WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* >::Invoke(10 /* System.Void Facebook.WitAi.Dictation.IDictationService::ActivateImmediately(Facebook.WitAi.Configuration.WitRequestOptions) */, IDictationService_tCFFF87F3645430C648FD3D0D9BEE2315E94508FC_il2cpp_TypeInfo_var, L_3, L_4);
+		// }
 		return;
 	}
 }
@@ -2308,9 +2395,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_Deactivate_m98BD5
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _dictationServiceImpl.Deactivate();
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		NullCheck(L_0);
 		InterfaceActionInvoker0::Invoke(11 /* System.Void Facebook.WitAi.Dictation.IDictationService::Deactivate() */, IDictationService_tCFFF87F3645430C648FD3D0D9BEE2315E94508FC_il2cpp_TypeInfo_var, L_0);
+		// }
 		return;
 	}
 }
@@ -2324,9 +2413,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_Cancel_m24596723A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _dictationServiceImpl.Deactivate();
 		RuntimeObject* L_0 = __this->____dictationServiceImpl_8;
 		NullCheck(L_0);
 		InterfaceActionInvoker0::Invoke(11 /* System.Void Facebook.WitAi.Dictation.IDictationService::Deactivate() */, IDictationService_tCFFF87F3645430C648FD3D0D9BEE2315E94508FC_il2cpp_TypeInfo_var, L_0);
+		// }
 		return;
 	}
 }
@@ -2355,6 +2446,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnWitResponseList
 	WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* G_B10_0 = NULL;
 	WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* G_B9_0 = NULL;
 	{
+		// var tokens = witResponseNode?["speech"]?["tokens"];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_0 = ___witResponseNode0;
 		if (L_0)
 		{
@@ -2396,6 +2488,7 @@ IL_0018:
 IL_0022:
 	{
 		V_0 = G_B5_0;
+		// if (tokens != null)
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_5 = V_0;
 		bool L_6;
 		L_6 = WitResponseNode_op_Inequality_mAD708D798FF435194C7037FC79662F705AC9ED7E(L_5, NULL, NULL);
@@ -2405,11 +2498,13 @@ IL_0022:
 		}
 	}
 	{
+		// int speechTokensLength = tokens.Count;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_7 = V_0;
 		NullCheck(L_7);
 		int32_t L_8;
 		L_8 = VirtualFuncInvoker0< int32_t >::Invoke(11 /* System.Int32 Facebook.WitAi.Lib.WitResponseNode::get_Count() */, L_7);
 		V_1 = L_8;
+		// string speechLength = witResponseNode["speech"]["tokens"][speechTokensLength - 1]?["end"]?.Value;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_9 = ___witResponseNode0;
 		NullCheck(L_9);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_10;
@@ -2463,6 +2558,7 @@ IL_0068:
 IL_006d:
 	{
 		V_2 = G_B11_0;
+		// _voiceSDKLogger.LogAnnotation("audioLength", speechLength);
 		RuntimeObject* L_18 = __this->____voiceSDKLogger_9;
 		String_t* L_19 = V_2;
 		NullCheck(L_18);
@@ -2471,9 +2567,11 @@ IL_006d:
 
 IL_007f:
 	{
+		// _voiceSDKLogger.LogInteractionEndSuccess();
 		RuntimeObject* L_20 = __this->____voiceSDKLogger_9;
 		NullCheck(L_20);
 		InterfaceActionInvoker0::Invoke(7 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionEndSuccess() */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_20);
+		// }
 		return;
 	}
 }
@@ -2488,6 +2586,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnError_mC8BF7088
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _voiceSDKLogger.LogInteractionEndFailure($"{errorType}:{errorMessage}");
 		RuntimeObject* L_0 = __this->____voiceSDKLogger_9;
 		String_t* L_1 = ___errorType0;
 		String_t* L_2 = ___errorMessage1;
@@ -2495,6 +2594,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnError_mC8BF7088
 		L_3 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(L_1, _stringLiteral876C4B39B6E4D0187090400768899C71D99DE90D, L_2, NULL);
 		NullCheck(L_0);
 		InterfaceActionInvoker1< String_t* >::Invoke(8 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionEndFailure(System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_0, L_3);
+		// }
 		return;
 	}
 }
@@ -2509,9 +2609,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnStarted_m73CF1E
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _voiceSDKLogger.LogInteractionPoint("startedListening");
 		RuntimeObject* L_0 = __this->____voiceSDKLogger_9;
 		NullCheck(L_0);
 		InterfaceActionInvoker1< String_t* >::Invoke(9 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionPoint(System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_0, _stringLiteral009B2393908F71D06D49150F8D76B306E76A6F71);
+		// }
 		return;
 	}
 }
@@ -2526,9 +2628,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnStopped_mBD5D5A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// _voiceSDKLogger.LogInteractionPoint("stoppedListening");
 		RuntimeObject* L_0 = __this->____voiceSDKLogger_9;
 		NullCheck(L_0);
 		InterfaceActionInvoker1< String_t* >::Invoke(9 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionPoint(System.String) */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_0, _stringLiteralF1791A4023492EC42A6A612D3F7AEB832B83E613);
+		// if (_voiceSDKLogger.IsUsingPlatformIntegration)
 		RuntimeObject* L_1 = __this->____voiceSDKLogger_9;
 		NullCheck(L_1);
 		bool L_2;
@@ -2539,6 +2643,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnStopped_mBD5D5A
 		}
 	}
 	{
+		// _voiceSDKLogger.LogInteractionEndSuccess();
 		RuntimeObject* L_3 = __this->____voiceSDKLogger_9;
 		NullCheck(L_3);
 		InterfaceActionInvoker0::Invoke(7 /* System.Void Oculus.Voice.Core.Bindings.Interfaces.IVoiceSDKLogger::LogInteractionEndSuccess() */, IVoiceSDKLogger_t8A0710A01D6E9FAA8D2FFE4190C3BD848CA655C0_il2cpp_TypeInfo_var, L_3);
@@ -2546,6 +2651,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnStopped_mBD5D5A
 
 IL_0028:
 	{
+		// }
 		return;
 	}
 }
@@ -2562,6 +2668,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnDictationSessio
 	}
 	PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D* V_0 = NULL;
 	{
+		// if (session is PlatformDictationSession platformDictationSession)
 		DictationSession_t31196585DC99509C2F919EAFF74CCB0E23EF7339* L_0 = ___session0;
 		V_0 = ((PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D*)IsInstClass((RuntimeObject*)L_0, PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D_il2cpp_TypeInfo_var));
 		PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D* L_1 = V_0;
@@ -2571,6 +2678,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnDictationSessio
 		}
 	}
 	{
+		// _voiceSDKLogger.LogAnnotation("platformInteractionId", platformDictationSession.platformSessionId);
 		RuntimeObject* L_2 = __this->____voiceSDKLogger_9;
 		PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D* L_3 = V_0;
 		NullCheck(L_3);
@@ -2581,6 +2689,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience_OnDictationSessio
 
 IL_0020:
 	{
+		// }
 		return;
 	}
 }
@@ -2594,6 +2703,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AppDictationExperience__ctor_mECA4F8793D
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// private readonly string PACKAGE_VERSION = "46.0.1";
 		__this->___PACKAGE_VERSION_11 = _stringLiteral79CFF8A763BC3C89337D51D6A37F89EADC03B1B3;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___PACKAGE_VERSION_11), (void*)_stringLiteral79CFF8A763BC3C89337D51D6A37F89EADC03B1B3);
 		DictationService__ctor_m9EEC338BBB2A6D1124E409BA81EA28489DF3A1EF(__this, NULL);
@@ -2620,8 +2730,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationConfigurationBinding__ctor_mE8F
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// private readonly int MAX_PLATFORM_SUPPORTED_RECORDING_TIME_SECONDS = 300;
 		__this->___MAX_PLATFORM_SUPPORTED_RECORDING_TIME_SECONDS_2 = ((int32_t)300);
+		// public DictationConfigurationBinding(WitDictationRuntimeConfiguration runtimeConfiguration)
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
+		// if (null == runtimeConfiguration)
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0 = ___runtimeConfiguration0;
 		if (L_0)
 		{
@@ -2629,8 +2742,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationConfigurationBinding__ctor_mE8F
 		}
 	}
 	{
+		// Debug.LogWarning("No dictation config has been defined. Using the default configuration.");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteral98E6C9E8489820A84E6320A90C8A1A193B1F130E, NULL);
+		// _dictationConfiguration = new DictationConfiguration();
 		DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36* L_1 = (DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36*)il2cpp_codegen_object_new(DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36_il2cpp_TypeInfo_var);
 		NullCheck(L_1);
 		DictationConfiguration__ctor_mBC95CB49A1217571897B1407FF0F03E1C79BD3B4(L_1, NULL);
@@ -2641,14 +2756,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationConfigurationBinding__ctor_mE8F
 
 IL_002a:
 	{
+		// _dictationConfiguration = runtimeConfiguration.dictationConfiguration;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_2 = ___runtimeConfiguration0;
 		NullCheck(L_2);
 		DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36* L_3 = L_2->___dictationConfiguration_13;
 		__this->____dictationConfiguration_1 = L_3;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationConfiguration_1), (void*)L_3);
+		// _runtimeConfiguration = runtimeConfiguration;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_4 = ___runtimeConfiguration0;
 		__this->____runtimeConfiguration_0 = L_4;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____runtimeConfiguration_0), (void*)L_4);
+		// }
 		return;
 	}
 }
@@ -2673,30 +2791,35 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AndroidJavaObject_t8FFB930F335C1178405B82AC2B
 	AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* V_0 = NULL;
 	int32_t V_1 = 0;
 	{
+		// AndroidJavaObject jo = new AndroidJavaObject("com.oculus.assistant.api.voicesdk.dictation.PlatformDictationConfiguration");
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_0;
 		L_0 = Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_inline(Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_RuntimeMethod_var);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_1 = (AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0*)il2cpp_codegen_object_new(AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0_il2cpp_TypeInfo_var);
 		NullCheck(L_1);
 		AndroidJavaObject__ctor_m5A65B5D325C2CEFAC4097A0D3813F8E158178DD7(L_1, _stringLiteralB0C8B9FB207C48F25C931C8F380C930D0D536222, L_0, NULL);
 		V_0 = L_1;
+		// jo.Set("multiPhrase", _dictationConfiguration.multiPhrase);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_2 = V_0;
 		DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36* L_3 = __this->____dictationConfiguration_1;
 		NullCheck(L_3);
 		bool L_4 = L_3->___multiPhrase_0;
 		NullCheck(L_2);
 		AndroidJavaObject_Set_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m1C70D480560CA0D0C171727EB7B1FF4C1F267F15(L_2, _stringLiteralF0D162E78AA80AA0E3661450758F2F0597EC256D, L_4, AndroidJavaObject_Set_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m1C70D480560CA0D0C171727EB7B1FF4C1F267F15_RuntimeMethod_var);
+		// jo.Set("scenario", _dictationConfiguration.scenario);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_5 = V_0;
 		DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36* L_6 = __this->____dictationConfiguration_1;
 		NullCheck(L_6);
 		String_t* L_7 = L_6->___scenario_1;
 		NullCheck(L_5);
 		AndroidJavaObject_Set_TisString_t_mC45E99DE5239B327CDD9B412DEADE7EA827797DE(L_5, _stringLiteral056880AD9C3883D4939FC264961037B1008555B1, L_7, AndroidJavaObject_Set_TisString_t_mC45E99DE5239B327CDD9B412DEADE7EA827797DE_RuntimeMethod_var);
+		// jo.Set("inputType", _dictationConfiguration.inputType);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_8 = V_0;
 		DictationConfiguration_t5ED65C60FC8795303E51480340815D29DE1C5A36* L_9 = __this->____dictationConfiguration_1;
 		NullCheck(L_9);
 		String_t* L_10 = L_9->___inputType_2;
 		NullCheck(L_8);
 		AndroidJavaObject_Set_TisString_t_mC45E99DE5239B327CDD9B412DEADE7EA827797DE(L_8, _stringLiteralFBBACC81B77C56ABE61594350F7EAB185A58A0FB, L_10, AndroidJavaObject_Set_TisString_t_mC45E99DE5239B327CDD9B412DEADE7EA827797DE_RuntimeMethod_var);
+		// if (_runtimeConfiguration != null)
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_11 = __this->____runtimeConfiguration_0;
 		if (!L_11)
 		{
@@ -2704,10 +2827,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AndroidJavaObject_t8FFB930F335C1178405B82AC2B
 		}
 	}
 	{
+		// int maxRecordingTime = (int) _runtimeConfiguration.maxRecordingTime;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_12 = __this->____runtimeConfiguration_0;
 		NullCheck(L_12);
 		float L_13 = ((WitRuntimeConfiguration_t74ABC500731591BA8D99A1C88E1821020551D3B3*)L_12)->___maxRecordingTime_4;
 		V_1 = il2cpp_codegen_cast_double_to_int<int32_t>(L_13);
+		// if (maxRecordingTime < 0)
 		int32_t L_14 = V_1;
 		if ((((int32_t)L_14) >= ((int32_t)0)))
 		{
@@ -2715,12 +2840,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AndroidJavaObject_t8FFB930F335C1178405B82AC2B
 		}
 	}
 	{
+		// maxRecordingTime = MAX_PLATFORM_SUPPORTED_RECORDING_TIME_SECONDS;
 		int32_t L_15 = __this->___MAX_PLATFORM_SUPPORTED_RECORDING_TIME_SECONDS_2;
 		V_1 = L_15;
 	}
 
 IL_0072:
 	{
+		// jo.Set("interactionTimeoutSeconds", maxRecordingTime);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_16 = V_0;
 		int32_t L_17 = V_1;
 		NullCheck(L_16);
@@ -2729,6 +2856,7 @@ IL_0072:
 
 IL_007e:
 	{
+		// return jo;
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_18 = V_0;
 		return L_18;
 	}
@@ -2751,6 +2879,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DictationEvents_tAB22C3B0867F01BF075507527804
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// private DictationEvents DictationEvents => _dictationService.DictationEvents;
 		RuntimeObject* L_0 = __this->____dictationService_4;
 		NullCheck(L_0);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_1;
@@ -2769,14 +2898,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding__ctor_m2D12373A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// : base("com.oculus.assistant.api.voicesdk.dictation.PlatformDictationListener")
 		il2cpp_codegen_runtime_class_init_inline(AndroidJavaProxy_tE5521F9761F7B95444B9C39FB15FDFC23F80A78D_il2cpp_TypeInfo_var);
 		AndroidJavaProxy__ctor_m2832886A0E1BBF6702653A7C6A4609F11FB712C7(__this, _stringLiteralA9D9C721B449B77D63B038C7A2F8E4F79C9EA02F, NULL);
+		// _dictationService = dictationService;
 		RuntimeObject* L_0 = ___dictationService0;
 		__this->____dictationService_4 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationService_4), (void*)L_0);
+		// _serviceEvents = serviceEvents;
 		RuntimeObject* L_1 = ___serviceEvents1;
 		__this->____serviceEvents_5 = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____serviceEvents_5), (void*)L_1);
+		// }
 		return;
 	}
 }
@@ -2796,6 +2929,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onStart_mADF0D9
 	DictationSessionEvent_t8FF4C154C5931333E34D613879432B3EB36AF3CE* G_B5_0 = NULL;
 	DictationSessionEvent_t8FF4C154C5931333E34D613879432B3EB36AF3CE* G_B4_0 = NULL;
 	{
+		// DictationEvents.onStart?.Invoke();
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0;
 		L_0 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_0);
@@ -2820,6 +2954,11 @@ IL_0011:
 
 IL_0016:
 	{
+		// DictationSession session = new PlatformDictationSession()
+		// {
+		//     dictationService = _dictationService,
+		//     platformSessionId = sessionId
+		// };
 		PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D* L_3 = (PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D*)il2cpp_codegen_object_new(PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D_il2cpp_TypeInfo_var);
 		NullCheck(L_3);
 		PlatformDictationSession__ctor_mE25FD457E28701E01E016212ED5D4F516791BAC7(L_3, NULL);
@@ -2834,6 +2973,7 @@ IL_0016:
 		L_6->___platformSessionId_6 = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&L_6->___platformSessionId_6), (void*)L_7);
 		V_0 = L_6;
+		// DictationEvents.onDictationSessionStarted?.Invoke(session);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_8;
 		L_8 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_8);
@@ -2855,6 +2995,7 @@ IL_003f:
 		DictationSession_t31196585DC99509C2F919EAFF74CCB0E23EF7339* L_11 = V_0;
 		NullCheck(G_B5_0);
 		UnityEvent_1_Invoke_m630D79FFFE2815FC15F6A8E48072E442F3051841(G_B5_0, L_11, UnityEvent_1_Invoke_m630D79FFFE2815FC15F6A8E48072E442F3051841_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -2870,6 +3011,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onMicAudioLevel
 	WitMicLevelChangedEvent_tA9B0047640D9DE7218C4699B6F6E0ABBCD966F1C* G_B2_0 = NULL;
 	WitMicLevelChangedEvent_tA9B0047640D9DE7218C4699B6F6E0ABBCD966F1C* G_B1_0 = NULL;
 	{
+		// DictationEvents.onMicAudioLevel?.Invoke(micLevel / 100.0f);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0;
 		L_0 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_0);
@@ -2891,6 +3033,7 @@ IL_0010:
 		int32_t L_3 = ___micLevel1;
 		NullCheck(G_B2_0);
 		UnityEvent_1_Invoke_mABC41DCEDDFA68F8F39C0DFC1CF55B7C1B70A805(G_B2_0, ((float)(((float)L_3)/(100.0f))), UnityEvent_1_Invoke_mABC41DCEDDFA68F8F39C0DFC1CF55B7C1B70A805_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -2906,6 +3049,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onPartialTransc
 	WitTranscriptionEvent_t46F45C5FE99C833DFE345D2255587E22A1ABE32E* G_B2_0 = NULL;
 	WitTranscriptionEvent_t46F45C5FE99C833DFE345D2255587E22A1ABE32E* G_B1_0 = NULL;
 	{
+		// DictationEvents.onPartialTranscription?.Invoke(transcription);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0;
 		L_0 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_0);
@@ -2927,6 +3071,7 @@ IL_0010:
 		String_t* L_3 = ___transcription1;
 		NullCheck(G_B2_0);
 		UnityEvent_1_Invoke_mA633B48B5D287DA856FB954AC3E4012487E63C15(G_B2_0, L_3, UnityEvent_1_Invoke_mA633B48B5D287DA856FB954AC3E4012487E63C15_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -2942,6 +3087,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onFinalTranscri
 	WitTranscriptionEvent_t46F45C5FE99C833DFE345D2255587E22A1ABE32E* G_B2_0 = NULL;
 	WitTranscriptionEvent_t46F45C5FE99C833DFE345D2255587E22A1ABE32E* G_B1_0 = NULL;
 	{
+		// DictationEvents.onFullTranscription?.Invoke(transcription);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0;
 		L_0 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_0);
@@ -2963,6 +3109,7 @@ IL_0010:
 		String_t* L_3 = ___transcription1;
 		NullCheck(G_B2_0);
 		UnityEvent_1_Invoke_mA633B48B5D287DA856FB954AC3E4012487E63C15(G_B2_0, L_3, UnityEvent_1_Invoke_mA633B48B5D287DA856FB954AC3E4012487E63C15_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -2978,6 +3125,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onError_m697275
 	WitErrorEvent_tFF53D8544CC1D1E7FD8E98A1EC8AD7581F62EE34* G_B2_0 = NULL;
 	WitErrorEvent_tFF53D8544CC1D1E7FD8E98A1EC8AD7581F62EE34* G_B1_0 = NULL;
 	{
+		// DictationEvents.onError?.Invoke(errorType, errorMessage);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0;
 		L_0 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_0);
@@ -3000,6 +3148,7 @@ IL_0010:
 		String_t* L_4 = ___errorMessage2;
 		NullCheck(G_B2_0);
 		UnityEvent_2_Invoke_m40308708481154EFE4E59A5787D5CB02DC8B5645(G_B2_0, L_3, L_4, UnityEvent_2_Invoke_m40308708481154EFE4E59A5787D5CB02DC8B5645_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -3019,6 +3168,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onStopped_mA9F3
 	DictationSessionEvent_t8FF4C154C5931333E34D613879432B3EB36AF3CE* G_B5_0 = NULL;
 	DictationSessionEvent_t8FF4C154C5931333E34D613879432B3EB36AF3CE* G_B4_0 = NULL;
 	{
+		// DictationEvents.onStopped?.Invoke();
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0;
 		L_0 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_0);
@@ -3043,6 +3193,11 @@ IL_0011:
 
 IL_0016:
 	{
+		// DictationSession session = new PlatformDictationSession()
+		// {
+		//     dictationService = _dictationService,
+		//     platformSessionId = sessionId
+		// };
 		PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D* L_3 = (PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D*)il2cpp_codegen_object_new(PlatformDictationSession_t6B6C3E845DC5E636C4F406F46A5E13C55B135F2D_il2cpp_TypeInfo_var);
 		NullCheck(L_3);
 		PlatformDictationSession__ctor_mE25FD457E28701E01E016212ED5D4F516791BAC7(L_3, NULL);
@@ -3057,6 +3212,7 @@ IL_0016:
 		L_6->___platformSessionId_6 = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&L_6->___platformSessionId_6), (void*)L_7);
 		V_0 = L_6;
+		// DictationEvents.onDictationSessionStopped?.Invoke(session);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_8;
 		L_8 = DictationListenerBinding_get_DictationEvents_mDDFB55369124718574CEFF0CB5882814B3FFF5D2(__this, NULL);
 		NullCheck(L_8);
@@ -3078,6 +3234,7 @@ IL_003f:
 		DictationSession_t31196585DC99509C2F919EAFF74CCB0E23EF7339* L_11 = V_0;
 		NullCheck(G_B5_0);
 		UnityEvent_1_Invoke_m630D79FFFE2815FC15F6A8E48072E442F3051841(G_B5_0, L_11, UnityEvent_1_Invoke_m630D79FFFE2815FC15F6A8E48072E442F3051841_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -3093,13 +3250,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationListenerBinding_onServiceNotAva
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// Debug.LogWarning("Platform dictation service is not available");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteral813EAED53B08F73CCB784F375C322C4FA878F945, NULL);
+		// _serviceEvents.OnServiceNotAvailable(error, message);
 		RuntimeObject* L_0 = __this->____serviceEvents_5;
 		String_t* L_1 = ___error0;
 		String_t* L_2 = ___message1;
 		NullCheck(L_0);
 		InterfaceActionInvoker2< String_t*, String_t* >::Invoke(0 /* System.Void Oculus.Voice.Dictation.Bindings.Android.IServiceEvents::OnServiceNotAvailable(System.String,System.String) */, IServiceEvents_tE4D782832204C070F3C292EED605C52935EB5CAE_il2cpp_TypeInfo_var, L_0, L_1, L_2);
+		// }
 		return;
 	}
 }
@@ -3122,11 +3282,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl__ctor_m1DEF5481D39
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// private bool _serviceAvailable = true;
 		__this->____serviceAvailable_4 = (bool)1;
+		// : base("com.oculus.assistant.api.unity.dictation.UnityDictationServiceFragment")
 		BaseAndroidConnectionImpl_1__ctor_mEAABB6C9CBF80D1D5F33190BB253AB2781B7B6A8(__this, _stringLiteral816B8FF6B9854A49D2F73CF1BA6D31E9C28CA6CF, BaseAndroidConnectionImpl_1__ctor_mEAABB6C9CBF80D1D5F33190BB253AB2781B7B6A8_RuntimeMethod_var);
+		// _baseService = dictationService;
 		RuntimeObject* L_0 = ___dictationService0;
 		__this->____baseService_3 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____baseService_3), (void*)L_0);
+		// }
 		return;
 	}
 }
@@ -3134,6 +3298,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl__ctor_m1DEF5481D39
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_PlatformSupportsDictation_m19F01D2572236857FC5DC1408F301DA5A1C9CA82 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// public bool PlatformSupportsDictation => service.IsSupported && _serviceAvailable;
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_0 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		NullCheck(L_0);
 		bool L_1;
@@ -3157,6 +3322,7 @@ IL_0014:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_Active_mCA16DBC1BC278E8DACE5B11D555660A29241075A (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// public bool Active => service.Active;
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_0 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		NullCheck(L_0);
 		bool L_1;
@@ -3168,6 +3334,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_Active_mCA16DB
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_IsRequestActive_m99298228C7FE169DCF54CE3C243268E517CDAB79 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// public bool IsRequestActive => service.IsRequestActive;
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_0 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		NullCheck(L_0);
 		bool L_1;
@@ -3179,6 +3346,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_IsRequestActiv
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_MicActive_mDEC65C98CD5CE0E2FCA36DB0580A30ADD0751082 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// public bool MicActive => service.Active;
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_0 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		NullCheck(L_0);
 		bool L_1;
@@ -3190,6 +3358,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationImpl_get_MicActive_mDEC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* PlatformDictationImpl_get_TranscriptionProvider_mC7A0FCFF0EB8F66D42D6BC35ED6BF7AEA2E61EA3 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// public ITranscriptionProvider TranscriptionProvider { get; set; }
 		RuntimeObject* L_0 = __this->___U3CTranscriptionProviderU3Ek__BackingField_7;
 		return L_0;
 	}
@@ -3198,6 +3367,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* PlatformDictationImpl_get_Tran
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_set_TranscriptionProvider_mEEAC2602AA45B809908945A98BC80E6122115A50 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, RuntimeObject* ___value0, const RuntimeMethod* method) 
 {
 	{
+		// public ITranscriptionProvider TranscriptionProvider { get; set; }
 		RuntimeObject* L_0 = ___value0;
 		__this->___U3CTranscriptionProviderU3Ek__BackingField_7 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CTranscriptionProviderU3Ek__BackingField_7), (void*)L_0);
@@ -3214,6 +3384,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR DictationEvents_tAB22C3B0867F01BF075507527804
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// get => _baseService.DictationEvents;
 		RuntimeObject* L_0 = __this->____baseService_3;
 		NullCheck(L_0);
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_1;
@@ -3231,6 +3402,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_set_DictationEvent
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// set => _baseService.DictationEvents = value;
 		RuntimeObject* L_0 = __this->____baseService_3;
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_1 = ___value0;
 		NullCheck(L_0);
@@ -3249,17 +3421,21 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Connect_mEC3FF6792
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// base.Connect(version);
 		String_t* L_0 = ___version0;
 		BaseAndroidConnectionImpl_1_Connect_m7E3034C832613BABA67391CCD88C5AA6E658787B(__this, L_0, BaseAndroidConnectionImpl_1_Connect_m7E3034C832613BABA67391CCD88C5AA6E658787B_RuntimeMethod_var);
+		// _listenerBinding = new DictationListenerBinding(this, this);
 		DictationListenerBinding_t3EB8C3AAEFDBEB86CE8DD521347389B72A97CF37* L_1 = (DictationListenerBinding_t3EB8C3AAEFDBEB86CE8DD521347389B72A97CF37*)il2cpp_codegen_object_new(DictationListenerBinding_t3EB8C3AAEFDBEB86CE8DD521347389B72A97CF37_il2cpp_TypeInfo_var);
 		NullCheck(L_1);
 		DictationListenerBinding__ctor_m2D12373A78FA4A004A8AE83DB031DC18C9DF0BDF(L_1, __this, __this, NULL);
 		__this->____listenerBinding_6 = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____listenerBinding_6), (void*)L_1);
+		// service.SetListener(_listenerBinding);
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_2 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		DictationListenerBinding_t3EB8C3AAEFDBEB86CE8DD521347389B72A97CF37* L_3 = __this->____listenerBinding_6;
 		NullCheck(L_2);
 		PlatformDictationSDKBinding_SetListener_m419278FADF41DEA36190DCB67FFDEAA4A66A5C38(L_2, L_3, NULL);
+		// }
 		return;
 	}
 }
@@ -3273,7 +3449,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Disconnect_m5F604D
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// base.Disconnect();
 		BaseAndroidConnectionImpl_1_Disconnect_mF9DFF21AAA9FD3BB4240AF484C5C69D7845C9644(__this, BaseAndroidConnectionImpl_1_Disconnect_mF9DFF21AAA9FD3BB4240AF484C5C69D7845C9644_RuntimeMethod_var);
+		// }
 		return;
 	}
 }
@@ -3281,9 +3459,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Disconnect_m5F604D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_SetDictationRuntimeConfiguration_m41A9AFE899A26FBB02B249864C508BE3BAAB2F5D (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* ___configuration0, const RuntimeMethod* method) 
 {
 	{
+		// _dictationRuntimeConfiguration = configuration;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0 = ___configuration0;
 		__this->____dictationRuntimeConfiguration_5 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationRuntimeConfiguration_5), (void*)L_0);
+		// }
 		return;
 	}
 }
@@ -3297,6 +3477,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Activate_mD26F47C5
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// service.StartDictation(new DictationConfigurationBinding(_dictationRuntimeConfiguration));
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_0 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_1 = __this->____dictationRuntimeConfiguration_5;
 		DictationConfigurationBinding_t529CDE8B1F8F3FF5805FA07A9467CC87FAC0E3D0* L_2 = (DictationConfigurationBinding_t529CDE8B1F8F3FF5805FA07A9467CC87FAC0E3D0*)il2cpp_codegen_object_new(DictationConfigurationBinding_t529CDE8B1F8F3FF5805FA07A9467CC87FAC0E3D0_il2cpp_TypeInfo_var);
@@ -3304,6 +3485,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Activate_mD26F47C5
 		DictationConfigurationBinding__ctor_mE8F6BFE6AA9D4561D9EE13EAC610E2175EB79618(L_2, L_1, NULL);
 		NullCheck(L_0);
 		PlatformDictationSDKBinding_StartDictation_m57467F1B7BCB1953C9A2F0D1F9F0ED9C44A00BAB(L_0, L_2, NULL);
+		// }
 		return;
 	}
 }
@@ -3311,7 +3493,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Activate_mD26F47C5
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Activate_m4CF864A385C03B61807B65EEA1D92814391083E1 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* ___requestOptions0, const RuntimeMethod* method) 
 {
 	{
+		// Activate();
 		PlatformDictationImpl_Activate_mD26F47C5BF1817199A2750D24B8C680AF8831CA9(__this, NULL);
+		// }
 		return;
 	}
 }
@@ -3319,7 +3503,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Activate_m4CF864A3
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_ActivateImmediately_mA9E9E058C4E3D745950A2D470120AE0273ADF06D (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// Activate();
 		PlatformDictationImpl_Activate_mD26F47C5BF1817199A2750D24B8C680AF8831CA9(__this, NULL);
+		// }
 		return;
 	}
 }
@@ -3327,7 +3513,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_ActivateImmediatel
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_ActivateImmediately_m9544098F60DD9A5F7A4CE20939DFC69515A6A813 (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, WitRequestOptions_tDF3C29A7F96FE1E43F5143DB6C6E96869BD4AB49* ___requestOptions0, const RuntimeMethod* method) 
 {
 	{
+		// Activate();
 		PlatformDictationImpl_Activate_mD26F47C5BF1817199A2750D24B8C680AF8831CA9(__this, NULL);
+		// }
 		return;
 	}
 }
@@ -3335,9 +3523,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_ActivateImmediatel
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_Deactivate_m0A7490E44717011FDDB450EDFE1CF24684D4630E (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, const RuntimeMethod* method) 
 {
 	{
+		// service.StopDictation();
 		PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* L_0 = ((BaseAndroidConnectionImpl_1_t6C7D03F22E0D1A865E095B0104B6A3C2195DBA48*)__this)->___service_1;
 		NullCheck(L_0);
 		PlatformDictationSDKBinding_StopDictation_mDEFCAE5BD7A46B706E824901BB18DE0753DA8455(L_0, NULL);
+		// }
 		return;
 	}
 }
@@ -3347,7 +3537,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationImpl_OnServiceNotAvaila
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* G_B2_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* G_B1_0 = NULL;
 	{
+		// _serviceAvailable = false;
 		__this->____serviceAvailable_4 = (bool)0;
+		// OnServiceNotAvailableEvent?.Invoke();
 		Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_0 = __this->___OnServiceNotAvailableEvent_8;
 		Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_1 = L_0;
 		G_B1_0 = L_1;
@@ -3365,6 +3557,7 @@ IL_0012:
 	{
 		NullCheck(G_B2_0);
 		Action_Invoke_m7126A54DACA72B845424072887B5F3A51FC3808E_inline(G_B2_0, NULL);
+		// }
 		return;
 	}
 }
@@ -3388,6 +3581,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationSDKBinding_get_Active_m
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public bool Active => binding.Call<bool>("isActive");
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)__this)->___binding_0;
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_1;
 		L_1 = Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_inline(Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_RuntimeMethod_var);
@@ -3409,6 +3603,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationSDKBinding_get_IsReques
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public bool IsRequestActive => binding.Call<bool>("isRequestActive");
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)__this)->___binding_0;
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_1;
 		L_1 = Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_inline(Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_RuntimeMethod_var);
@@ -3430,6 +3625,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationSDKBinding_get_IsSuppor
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public bool IsSupported => binding.Call<bool>("isSupported");
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)__this)->___binding_0;
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_1;
 		L_1 = Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_inline(Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_RuntimeMethod_var);
@@ -3443,8 +3639,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PlatformDictationSDKBinding_get_IsSuppor
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationSDKBinding__ctor_mA796E49388D5E3B49323BA29AA9076D849F3A05D (PlatformDictationSDKBinding_t386C78806F4251254C019364B637CA2F810A8214* __this, AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* ___sdkInstance0, const RuntimeMethod* method) 
 {
 	{
+		// public PlatformDictationSDKBinding(AndroidJavaObject sdkInstance) : base(sdkInstance) {}
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ___sdkInstance0;
 		BaseServiceBinding__ctor_m22F1D7EDB34C2C3349D5678957D925793DAB1D20(__this, L_0, NULL);
+		// public PlatformDictationSDKBinding(AndroidJavaObject sdkInstance) : base(sdkInstance) {}
 		return;
 	}
 }
@@ -3459,6 +3657,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationSDKBinding_StartDictati
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// binding.Call("startDictation", configuration.ToJavaObject());
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)__this)->___binding_0;
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_1 = (ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*)(ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*)SZArrayNew(ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918_il2cpp_TypeInfo_var, (uint32_t)1);
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_2 = L_1;
@@ -3471,6 +3670,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationSDKBinding_StartDictati
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (RuntimeObject*)L_4);
 		NullCheck(L_0);
 		AndroidJavaObject_Call_mDEF7846E2AB1C5379069BB21049ED55A9D837B1C(L_0, _stringLiteralC2BF53B60F1510677F41C3CDF15E42D9212C54C8, L_2, NULL);
+		// }
 		return;
 	}
 }
@@ -3485,11 +3685,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationSDKBinding_StopDictatio
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// binding.Call("stopDictation");
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)__this)->___binding_0;
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_1;
 		L_1 = Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_inline(Array_Empty_TisRuntimeObject_mFB8A63D602BB6974D31E20300D9EB89C6FE7C278_RuntimeMethod_var);
 		NullCheck(L_0);
 		AndroidJavaObject_Call_mDEF7846E2AB1C5379069BB21049ED55A9D837B1C(L_0, _stringLiteral3069320ED085708F787A0D80D9D8A2C7536C068F, L_1, NULL);
+		// }
 		return;
 	}
 }
@@ -3504,6 +3706,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationSDKBinding_SetListener_
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// binding.Call("setListener", listenerBinding);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_0 = ((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)__this)->___binding_0;
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_1 = (ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*)(ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918*)SZArrayNew(ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918_il2cpp_TypeInfo_var, (uint32_t)1);
 		ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* L_2 = L_1;
@@ -3513,6 +3716,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlatformDictationSDKBinding_SetListener_
 		(L_2)->SetAt(static_cast<il2cpp_array_size_t>(0), (RuntimeObject*)L_3);
 		NullCheck(L_0);
 		AndroidJavaObject_Call_mDEF7846E2AB1C5379069BB21049ED55A9D837B1C(L_0, _stringLiteral3261C3E11E9AB172DA0BD2010EF79C41DE23C91C, L_2, NULL);
+		// }
 		return;
 	}
 }
@@ -3551,8 +3755,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DictationConfiguration__ctor_mBC95CB49A1
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public string scenario = "default";
 		__this->___scenario_1 = _stringLiteral6F5EC7239B41C242FCB23B64D91DA0070FC1C044;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___scenario_1), (void*)_stringLiteral6F5EC7239B41C242FCB23B64D91DA0070FC1C044);
+		// public string inputType = "text_default";
 		__this->___inputType_2 = _stringLiteral4CB08D607F2569F52044A36B9669C50187393E96;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___inputType_2), (void*)_stringLiteral4CB08D607F2569F52044A36B9669C50187393E96);
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
@@ -3575,6 +3781,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector2__ctor_m9525B79969AFF
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool AppDictationExperience_get_UsePlatformIntegrations_m8E4B2F994E436137A770CCF57210979647297835_inline (AppDictationExperience_t98BF0BE35FF8640B3D7F63323F222AC5B7242F42* __this, const RuntimeMethod* method) 
 {
 	{
+		// get => usePlatformServices;
 		bool L_0 = __this->___usePlatformServices_6;
 		return L_0;
 	}
@@ -3582,6 +3789,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR bool AppDictationExperience_get_U
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* DictationService_get_DictationEvents_mD1FC7C33883084B91CAC373C4BFDF80BD45B493B_inline (DictationService_tC334C0447471D6B9BA8321BDEE4C4B64125B4913* __this, const RuntimeMethod* method) 
 {
 	{
+		// get => dictationEvents;
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0 = __this->___dictationEvents_4;
 		return L_0;
 	}
@@ -3589,6 +3797,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR DictationEvents_tAB22C3B0867F01BF
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* AppDictationExperience_get_RuntimeConfiguration_mA7C2FE3556F04FD22872B8D36C7F6A4AEE00090B_inline (AppDictationExperience_t98BF0BE35FF8640B3D7F63323F222AC5B7242F42* __this, const RuntimeMethod* method) 
 {
 	{
+		// get => runtimeConfiguration;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0 = __this->___runtimeConfiguration_5;
 		return L_0;
 	}
@@ -3596,9 +3805,11 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR WitDictationRuntimeConfiguration_
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void PlatformDictationImpl_SetDictationRuntimeConfiguration_m41A9AFE899A26FBB02B249864C508BE3BAAB2F5D_inline (PlatformDictationImpl_tEBEAB151F3C03F5E0D42430F42DB5DEE7A4B16ED* __this, WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* ___configuration0, const RuntimeMethod* method) 
 {
 	{
+		// _dictationRuntimeConfiguration = configuration;
 		WitDictationRuntimeConfiguration_t855B01BA5083EDC20CB786F9D45954E3BB2A0F90* L_0 = ___configuration0;
 		__this->____dictationRuntimeConfiguration_5 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->____dictationRuntimeConfiguration_5), (void*)L_0);
+		// }
 		return;
 	}
 }
@@ -3610,6 +3821,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Action_Invoke_m7126A54DACA72
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WitDictation_set_RuntimeConfiguration_mC6B7E5C0D6BBD1C13FB994B56C080935A06B9BFA_inline (WitDictation_t9AD79975E43E51A96C78A890E30629F38A44507C* __this, WitRuntimeConfiguration_t74ABC500731591BA8D99A1C88E1821020551D3B3* ___value0, const RuntimeMethod* method) 
 {
 	{
+		// set => witRuntimeConfiguration = value;
 		WitRuntimeConfiguration_t74ABC500731591BA8D99A1C88E1821020551D3B3* L_0 = ___value0;
 		__this->___witRuntimeConfiguration_5 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___witRuntimeConfiguration_5), (void*)L_0);
@@ -3619,6 +3831,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void WitDictation_set_RuntimeConf
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void DictationService_set_DictationEvents_mA5C509FC7303384C74DCF172DC8398914504370F_inline (DictationService_tC334C0447471D6B9BA8321BDEE4C4B64125B4913* __this, DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* ___value0, const RuntimeMethod* method) 
 {
 	{
+		// set => dictationEvents = value;
 		DictationEvents_tAB22C3B0867F01BF075507527804B2A0D379B065* L_0 = ___value0;
 		__this->___dictationEvents_4 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___dictationEvents_4), (void*)L_0);

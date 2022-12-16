@@ -23265,9 +23265,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// responseNode = node;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_0 = ___node0;
 		__this->___responseNode_0 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___responseNode_0), (void*)L_0);
+		// id = node[WitEntity.Fields.ID];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_1 = ___node0;
 		NullCheck(L_1);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_2;
@@ -23276,6 +23278,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		L_3 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_2, NULL);
 		__this->___id_1 = L_3;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___id_1), (void*)L_3);
+		// name = node[WitEntity.Fields.NAME];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_4 = ___node0;
 		NullCheck(L_4);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_5;
@@ -23284,6 +23287,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		L_6 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_5, NULL);
 		__this->___name_2 = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___name_2), (void*)L_6);
+		// role = node[WitEntity.Fields.ROLE];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_7 = ___node0;
 		NullCheck(L_7);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_8;
@@ -23292,6 +23296,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		L_9 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_8, NULL);
 		__this->___role_3 = L_9;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___role_3), (void*)L_9);
+		// start = node[WitEntity.Fields.START].AsInt;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_10 = ___node0;
 		NullCheck(L_10);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_11;
@@ -23300,6 +23305,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		int32_t L_12;
 		L_12 = VirtualFuncInvoker0< int32_t >::Invoke(18 /* System.Int32 Facebook.WitAi.Lib.WitResponseNode::get_AsInt() */, L_11);
 		__this->___start_4 = L_12;
+		// end = node[WitEntity.Fields.END].AsInt;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_13 = ___node0;
 		NullCheck(L_13);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_14;
@@ -23308,6 +23314,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		int32_t L_15;
 		L_15 = VirtualFuncInvoker0< int32_t >::Invoke(18 /* System.Int32 Facebook.WitAi.Lib.WitResponseNode::get_AsInt() */, L_14);
 		__this->___end_5 = L_15;
+		// type = node[WitEntity.Fields.TYPE];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_16 = ___node0;
 		NullCheck(L_16);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_17;
@@ -23316,6 +23323,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		L_18 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_17, NULL);
 		__this->___type_6 = L_18;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___type_6), (void*)L_18);
+		// body = node[WitEntity.Fields.BODY];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_19 = ___node0;
 		NullCheck(L_19);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_20;
@@ -23324,6 +23332,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		L_21 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_20, NULL);
 		__this->___body_7 = L_21;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___body_7), (void*)L_21);
+		// confidence = node[WitEntity.Fields.CONFIDENCE].AsFloat;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_22 = ___node0;
 		NullCheck(L_22);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_23;
@@ -23332,6 +23341,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		float L_24;
 		L_24 = VirtualFuncInvoker0< float >::Invoke(20 /* System.Single Facebook.WitAi.Lib.WitResponseNode::get_AsFloat() */, L_23);
 		__this->___confidence_9 = L_24;
+		// hasData = !string.IsNullOrEmpty(node.Value);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_25 = ___node0;
 		NullCheck(L_25);
 		String_t* L_26;
@@ -23339,10 +23349,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		bool L_27;
 		L_27 = String_IsNullOrEmpty_mEA9E3FB005AC28FE02E69FCF95A7B8456192B478(L_26, NULL);
 		__this->___hasData_10 = (bool)((((int32_t)L_27) == ((int32_t)0))? 1 : 0);
+		// value = OnParseValue(node);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_28 = ___node0;
 		int32_t L_29;
 		L_29 = VirtualFuncInvoker1< int32_t, WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* >::Invoke(4 /* T Facebook.WitAi.Data.Entities.WitEntityDataBase`1<System.Int32>::OnParseValue(Facebook.WitAi.Lib.WitResponseNode) */, __this, L_28);
 		__this->___value_8 = L_29;
+		// entities = node[WitEntity.Fields.ENTITIES].AsArray;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_30 = ___node0;
 		NullCheck(L_30);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_31;
@@ -23352,6 +23364,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 		L_32 = VirtualFuncInvoker0< WitResponseArray_tB302DB8BD3C7CC1CF016D86CC5606920A2235E05* >::Invoke(26 /* Facebook.WitAi.Lib.WitResponseArray Facebook.WitAi.Lib.WitResponseNode::get_AsArray() */, L_31);
 		__this->___entities_11 = L_32;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___entities_11), (void*)L_32);
+		// return this;
 		return __this;
 	}
 }
@@ -23359,6 +23372,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_t6A3C61732A7C2581DF05134A
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* WitEntityDataBase_1_ToString_mCB7C582B850FD81F1546B9CE94A889AACC2D3AC2_gshared (WitEntityDataBase_1_t6A3C61732A7C2581DF05134AB74E1DFB59E05C07* __this, const RuntimeMethod* method) 
 {
 	{
+		// return value.ToString();
 		int32_t* L_0 = (int32_t*)(&__this->___value_8);
 		String_t* L_1;
 		L_1 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5(L_0, il2cpp_rgctx_method(method->klass->rgctx_data, 3));
@@ -23399,9 +23413,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// responseNode = node;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_0 = ___node0;
 		__this->___responseNode_0 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___responseNode_0), (void*)L_0);
+		// id = node[WitEntity.Fields.ID];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_1 = ___node0;
 		NullCheck(L_1);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_2;
@@ -23410,6 +23426,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		L_3 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_2, NULL);
 		__this->___id_1 = L_3;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___id_1), (void*)L_3);
+		// name = node[WitEntity.Fields.NAME];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_4 = ___node0;
 		NullCheck(L_4);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_5;
@@ -23418,6 +23435,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		L_6 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_5, NULL);
 		__this->___name_2 = L_6;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___name_2), (void*)L_6);
+		// role = node[WitEntity.Fields.ROLE];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_7 = ___node0;
 		NullCheck(L_7);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_8;
@@ -23426,6 +23444,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		L_9 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_8, NULL);
 		__this->___role_3 = L_9;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___role_3), (void*)L_9);
+		// start = node[WitEntity.Fields.START].AsInt;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_10 = ___node0;
 		NullCheck(L_10);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_11;
@@ -23434,6 +23453,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		int32_t L_12;
 		L_12 = VirtualFuncInvoker0< int32_t >::Invoke(18 /* System.Int32 Facebook.WitAi.Lib.WitResponseNode::get_AsInt() */, L_11);
 		__this->___start_4 = L_12;
+		// end = node[WitEntity.Fields.END].AsInt;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_13 = ___node0;
 		NullCheck(L_13);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_14;
@@ -23442,6 +23462,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		int32_t L_15;
 		L_15 = VirtualFuncInvoker0< int32_t >::Invoke(18 /* System.Int32 Facebook.WitAi.Lib.WitResponseNode::get_AsInt() */, L_14);
 		__this->___end_5 = L_15;
+		// type = node[WitEntity.Fields.TYPE];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_16 = ___node0;
 		NullCheck(L_16);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_17;
@@ -23450,6 +23471,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		L_18 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_17, NULL);
 		__this->___type_6 = L_18;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___type_6), (void*)L_18);
+		// body = node[WitEntity.Fields.BODY];
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_19 = ___node0;
 		NullCheck(L_19);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_20;
@@ -23458,6 +23480,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		L_21 = WitResponseNode_op_Implicit_m143C3C59FB868D3352C8B2A15B059A1A1DC6AE87(L_20, NULL);
 		__this->___body_7 = L_21;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___body_7), (void*)L_21);
+		// confidence = node[WitEntity.Fields.CONFIDENCE].AsFloat;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_22 = ___node0;
 		NullCheck(L_22);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_23;
@@ -23466,6 +23489,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		float L_24;
 		L_24 = VirtualFuncInvoker0< float >::Invoke(20 /* System.Single Facebook.WitAi.Lib.WitResponseNode::get_AsFloat() */, L_23);
 		__this->___confidence_9 = L_24;
+		// hasData = !string.IsNullOrEmpty(node.Value);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_25 = ___node0;
 		NullCheck(L_25);
 		String_t* L_26;
@@ -23473,11 +23497,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		bool L_27;
 		L_27 = String_IsNullOrEmpty_mEA9E3FB005AC28FE02E69FCF95A7B8456192B478(L_26, NULL);
 		__this->___hasData_10 = (bool)((((int32_t)L_27) == ((int32_t)0))? 1 : 0);
+		// value = OnParseValue(node);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_28 = ___node0;
 		RuntimeObject* L_29;
 		L_29 = VirtualFuncInvoker1< RuntimeObject*, WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* >::Invoke(4 /* T Facebook.WitAi.Data.Entities.WitEntityDataBase`1<System.Object>::OnParseValue(Facebook.WitAi.Lib.WitResponseNode) */, __this, L_28);
 		__this->___value_8 = L_29;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___value_8), (void*)L_29);
+		// entities = node[WitEntity.Fields.ENTITIES].AsArray;
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_30 = ___node0;
 		NullCheck(L_30);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_31;
@@ -23487,6 +23513,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 		L_32 = VirtualFuncInvoker0< WitResponseArray_tB302DB8BD3C7CC1CF016D86CC5606920A2235E05* >::Invoke(26 /* Facebook.WitAi.Lib.WitResponseArray Facebook.WitAi.Lib.WitResponseNode::get_AsArray() */, L_31);
 		__this->___entities_11 = L_32;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___entities_11), (void*)L_32);
+		// return this;
 		return __this;
 	}
 }
@@ -23494,6 +23521,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR WitEntityDataBase_1_tD992377A5996E2EC27D289A6
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* WitEntityDataBase_1_ToString_m68BD3C398F74F88F7F8F0C451A719DE4835EA02D_gshared (WitEntityDataBase_1_tD992377A5996E2EC27D289A60634F3FAE327D362* __this, const RuntimeMethod* method) 
 {
 	{
+		// return value.ToString();
 		RuntimeObject** L_0 = (RuntimeObject**)(&__this->___value_8);
 		NullCheck((*L_0));
 		String_t* L_1;

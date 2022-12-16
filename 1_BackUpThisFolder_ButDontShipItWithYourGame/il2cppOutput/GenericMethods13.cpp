@@ -11154,6 +11154,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Volatile_Write_TisRuntimeObject_mBB6C586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WitResponseClass_GetChild_TisRuntimeObject_m41C09C603F222BC807529F59FE835E43DF15868E_gshared (WitResponseClass_t739569309AE400E308EB8DD834327086751C855C* __this, String_t* ___aKey0, RuntimeObject* ___defaultValue1, const RuntimeMethod* method) 
 {
 	{
+		// if (!HasChild(aKey))
 		String_t* L_0 = ___aKey0;
 		bool L_1;
 		L_1 = WitResponseClass_HasChild_m299BE438792953C23A8BE30B83096CC1BDE5CD38(__this, L_0, NULL);
@@ -11163,16 +11164,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WitResponseClass_GetChild_TisR
 		}
 	}
 	{
+		// return defaultValue;
 		RuntimeObject* L_2 = ___defaultValue1;
 		return L_2;
 	}
 
 IL_000b:
 	{
+		// WitResponseNode node = this[aKey];
 		String_t* L_3 = ___aKey0;
 		NullCheck((WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB*)__this);
 		WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB* L_4;
 		L_4 = VirtualFuncInvoker1< WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB*, String_t* >::Invoke(7 /* Facebook.WitAi.Lib.WitResponseNode Facebook.WitAi.Lib.WitResponseNode::get_Item(System.String) */, (WitResponseNode_tACC149B056FE33C54D55A5EAB653A77902617DBB*)__this, L_3);
+		// return node.Cast<T>(defaultValue);
 		RuntimeObject* L_5 = ___defaultValue1;
 		NullCheck(L_4);
 		RuntimeObject* L_6;
@@ -11207,8 +11211,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WitResponseNode_Cast_TisRuntim
 	RuntimeObject* V_0 = NULL;
 	String_t* V_1 = NULL;
 	{
+		// object result = defaultValue;
 		RuntimeObject* L_0 = ___defaultValue0;
 		V_0 = L_0;
+		// string typeName = typeof(T).ToString();
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_1 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(method->rgctx_data, 1)) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
 		Type_t* L_2;
@@ -11217,6 +11223,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WitResponseNode_Cast_TisRuntim
 		String_t* L_3;
 		L_3 = VirtualFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, (RuntimeObject*)L_2);
 		V_1 = L_3;
+		// if (string.Equals(typeName, typeof(string).ToString()))
 		String_t* L_4 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_5 = { reinterpret_cast<intptr_t> (String_t_0_0_0_var) };
 		Type_t* L_6;
@@ -11232,6 +11239,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WitResponseNode_Cast_TisRuntim
 		}
 	}
 	{
+		// result = this.Value;
 		String_t* L_9;
 		L_9 = VirtualFuncInvoker0< String_t* >::Invoke(9 /* System.String Facebook.WitAi.Lib.WitResponseNode::get_Value() */, __this);
 		V_0 = (RuntimeObject*)L_9;
@@ -11240,6 +11248,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WitResponseNode_Cast_TisRuntim
 
 IL_003a:
 	{
+		// else if (string.Equals(typeName, typeof(int).ToString()))
 		String_t* L_10 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_11 = { reinterpret_cast<intptr_t> (Int32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11256,6 +11265,7 @@ IL_003a:
 		}
 	}
 	{
+		// result = this.AsInt;
 		int32_t L_15;
 		L_15 = VirtualFuncInvoker0< int32_t >::Invoke(18 /* System.Int32 Facebook.WitAi.Lib.WitResponseNode::get_AsInt() */, __this);
 		int32_t L_16 = L_15;
@@ -11266,6 +11276,7 @@ IL_003a:
 
 IL_0062:
 	{
+		// else if (string.Equals(typeName, typeof(float).ToString()))
 		String_t* L_18 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_19 = { reinterpret_cast<intptr_t> (Single_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11282,6 +11293,7 @@ IL_0062:
 		}
 	}
 	{
+		// result = this.AsFloat;
 		float L_23;
 		L_23 = VirtualFuncInvoker0< float >::Invoke(20 /* System.Single Facebook.WitAi.Lib.WitResponseNode::get_AsFloat() */, __this);
 		float L_24 = L_23;
@@ -11292,6 +11304,7 @@ IL_0062:
 
 IL_008a:
 	{
+		// else if (string.Equals(typeName, typeof(double).ToString()))
 		String_t* L_26 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_27 = { reinterpret_cast<intptr_t> (Double_tE150EF3D1D43DEE85D533810AB4C742307EEDE5F_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11308,6 +11321,7 @@ IL_008a:
 		}
 	}
 	{
+		// result = this.AsDouble;
 		double L_31;
 		L_31 = VirtualFuncInvoker0< double >::Invoke(22 /* System.Double Facebook.WitAi.Lib.WitResponseNode::get_AsDouble() */, __this);
 		double L_32 = L_31;
@@ -11318,6 +11332,7 @@ IL_008a:
 
 IL_00b2:
 	{
+		// else if (string.Equals(typeName, typeof(bool).ToString()))
 		String_t* L_34 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_35 = { reinterpret_cast<intptr_t> (Boolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11334,6 +11349,7 @@ IL_00b2:
 		}
 	}
 	{
+		// result = this.AsBool;
 		bool L_39;
 		L_39 = VirtualFuncInvoker0< bool >::Invoke(24 /* System.Boolean Facebook.WitAi.Lib.WitResponseNode::get_AsBool() */, __this);
 		bool L_40 = L_39;
@@ -11344,6 +11360,7 @@ IL_00b2:
 
 IL_00d7:
 	{
+		// else if (string.Equals(typeName, typeof(string[]).ToString()))
 		String_t* L_42 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_43 = { reinterpret_cast<intptr_t> (StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11360,6 +11377,7 @@ IL_00d7:
 		}
 	}
 	{
+		// result = this.AsStringArray;
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_47;
 		L_47 = VirtualFuncInvoker0< StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* >::Invoke(27 /* System.String[] Facebook.WitAi.Lib.WitResponseNode::get_AsStringArray() */, __this);
 		V_0 = (RuntimeObject*)L_47;
@@ -11368,6 +11386,7 @@ IL_00d7:
 
 IL_00f7:
 	{
+		// else if (string.Equals(typeName, typeof(WitResponseArray).ToString()))
 		String_t* L_48 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_49 = { reinterpret_cast<intptr_t> (WitResponseArray_tB302DB8BD3C7CC1CF016D86CC5606920A2235E05_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11384,6 +11403,7 @@ IL_00f7:
 		}
 	}
 	{
+		// result = this.AsArray;
 		WitResponseArray_tB302DB8BD3C7CC1CF016D86CC5606920A2235E05* L_53;
 		L_53 = VirtualFuncInvoker0< WitResponseArray_tB302DB8BD3C7CC1CF016D86CC5606920A2235E05* >::Invoke(26 /* Facebook.WitAi.Lib.WitResponseArray Facebook.WitAi.Lib.WitResponseNode::get_AsArray() */, __this);
 		V_0 = (RuntimeObject*)L_53;
@@ -11392,6 +11412,7 @@ IL_00f7:
 
 IL_0117:
 	{
+		// else if (string.Equals(typeName, typeof(WitResponseClass).ToString()))
 		String_t* L_54 = V_1;
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_55 = { reinterpret_cast<intptr_t> (WitResponseClass_t739569309AE400E308EB8DD834327086751C855C_0_0_0_var) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11408,6 +11429,7 @@ IL_0117:
 		}
 	}
 	{
+		// result = this.AsObject;
 		WitResponseClass_t739569309AE400E308EB8DD834327086751C855C* L_59;
 		L_59 = VirtualFuncInvoker0< WitResponseClass_t739569309AE400E308EB8DD834327086751C855C* >::Invoke(28 /* Facebook.WitAi.Lib.WitResponseClass Facebook.WitAi.Lib.WitResponseNode::get_AsObject() */, __this);
 		V_0 = (RuntimeObject*)L_59;
@@ -11416,6 +11438,7 @@ IL_0117:
 
 IL_0137:
 	{
+		// Debug.LogWarning($"WitResponseNode - Cast to {typeName} not supported");
 		String_t* L_60 = V_1;
 		String_t* L_61;
 		L_61 = String_Concat_m8855A6DE10F84DA7F4EC113CADDB59873A25573B(_stringLiteral53CF3B92E92F867DD4C66BE295D4BD1F4304E602, L_60, _stringLiteral6FAC12148561FEC937CFC59BDE618CF0AF9BA64D, NULL);
@@ -11425,6 +11448,7 @@ IL_0137:
 
 IL_014c:
 	{
+		// return (T)result;
 		RuntimeObject* L_62 = V_0;
 		return ((RuntimeObject*)Castclass((RuntimeObject*)L_62, il2cpp_rgctx_data(method->rgctx_data, 0)));
 	}
@@ -11433,9 +11457,11 @@ IL_014c:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_CreateIntegratedSubsystem_TisRuntimeObject_TisRuntimeObject_mBAF3746971CDCF6B58182FF66E5A2B681461DFC7_gshared (XRLoaderHelper_tE96E7AE003148D5319D20BAD7E02654367E41DCC* __this, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___descriptors0, String_t* ___id1, const RuntimeMethod* method) 
 {
 	{
+		// CreateSubsystem<TDescriptor, TSubsystem>(descriptors, id);
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_0 = ___descriptors0;
 		String_t* L_1 = ___id1;
 		((  void (*) (XRLoaderHelper_tE96E7AE003148D5319D20BAD7E02654367E41DCC*, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D*, String_t*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(__this, L_0, L_1, il2cpp_rgctx_method(method->rgctx_data, 0));
+		// }
 		return;
 	}
 }
@@ -11443,9 +11469,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_CreateIntegratedSubsystem
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_CreateStandaloneSubsystem_TisRuntimeObject_TisRuntimeObject_m4A018972895E62D6EF6C8AED44E9F620D5A14199_gshared (XRLoaderHelper_tE96E7AE003148D5319D20BAD7E02654367E41DCC* __this, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___descriptors0, String_t* ___id1, const RuntimeMethod* method) 
 {
 	{
+		// CreateSubsystem<TDescriptor, TSubsystem>(descriptors, id);
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_0 = ___descriptors0;
 		String_t* L_1 = ___id1;
 		((  void (*) (XRLoaderHelper_tE96E7AE003148D5319D20BAD7E02654367E41DCC*, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D*, String_t*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(__this, L_0, L_1, il2cpp_rgctx_method(method->rgctx_data, 0));
+		// }
 		return;
 	}
 }
@@ -11466,6 +11494,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_CreateSubsystem_TisRuntim
 	RuntimeObject* V_1 = NULL;
 	RuntimeObject* V_2 = NULL;
 	{
+		// if (descriptors == null)
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_0 = ___descriptors0;
 		if (L_0)
 		{
@@ -11473,6 +11502,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_CreateSubsystem_TisRuntim
 		}
 	}
 	{
+		// throw new ArgumentNullException("descriptors");
 		ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* L_1 = (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129_il2cpp_TypeInfo_var)));
 		NullCheck(L_1);
 		ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B(L_1, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral4484D73E5D13E98119AFD8332CD8BC78758E004F)), NULL);
@@ -11481,9 +11511,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_CreateSubsystem_TisRuntim
 
 IL_000e:
 	{
+		// SubsystemManager.GetSubsystemDescriptors<TDescriptor>(descriptors);
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_2 = ___descriptors0;
 		il2cpp_codegen_runtime_class_init_inline(SubsystemManager_t9A7261E4D0B53B996F04B8707D8E1C33AB65E824_il2cpp_TypeInfo_var);
 		((  void (*) (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(L_2, il2cpp_rgctx_method(method->rgctx_data, 0));
+		// if (descriptors.Count > 0)
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_3 = ___descriptors0;
 		NullCheck(L_3);
 		int32_t L_4;
@@ -11494,6 +11526,7 @@ IL_000e:
 		}
 	}
 	{
+		// foreach (var descriptor in descriptors)
 		List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* L_5 = ___descriptors0;
 		NullCheck(L_5);
 		Enumerator_t9473BAB568A27E2339D48C1F91319E0F6D244D7A L_6;
@@ -11518,10 +11551,13 @@ FINALLY_007a:
 
 IL_0026_1:
 			{
+				// foreach (var descriptor in descriptors)
 				RuntimeObject* L_7;
 				L_7 = Enumerator_get_Current_m6330F15D18EE4F547C05DF9BF83C5EB710376027_inline((&V_0), il2cpp_rgctx_method(method->rgctx_data, 4));
 				V_1 = L_7;
+				// ISubsystem subsys = null;
 				V_2 = (RuntimeObject*)NULL;
+				// if (String.Compare(descriptor.id, id, true) == 0)
 				NullCheck((RuntimeObject*)(V_1));
 				String_t* L_8;
 				L_8 = InterfaceFuncInvoker0< String_t* >::Invoke(0 /* System.String UnityEngine.ISubsystemDescriptor::get_id() */, ISubsystemDescriptor_tEF29944D579CC7D70F52CB883150735991D54E6E_il2cpp_TypeInfo_var, (RuntimeObject*)(V_1));
@@ -11534,6 +11570,7 @@ IL_0026_1:
 				}
 			}
 			{
+				// subsys = descriptor.Create();
 				NullCheck((RuntimeObject*)(V_1));
 				RuntimeObject* L_11;
 				L_11 = InterfaceFuncInvoker0< RuntimeObject* >::Invoke(1 /* UnityEngine.ISubsystem UnityEngine.ISubsystemDescriptor::Create() */, ISubsystemDescriptor_tEF29944D579CC7D70F52CB883150735991D54E6E_il2cpp_TypeInfo_var, (RuntimeObject*)(V_1));
@@ -11542,6 +11579,7 @@ IL_0026_1:
 
 IL_0054_1:
 			{
+				// if (subsys != null)
 				RuntimeObject* L_12 = V_2;
 				if (!L_12)
 				{
@@ -11549,6 +11587,7 @@ IL_0054_1:
 				}
 			}
 			{
+				// m_SubsystemInstanceMap[typeof(TSubsystem)] = subsys;
 				Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C* L_13 = (Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C*)__this->___m_SubsystemInstanceMap_4;
 				RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_14 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(method->rgctx_data, 8)) };
 				il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
@@ -11557,11 +11596,13 @@ IL_0054_1:
 				RuntimeObject* L_16 = V_2;
 				NullCheck(L_13);
 				Dictionary_2_set_Item_m270330E4DF54B386E40D0D8ADB494D2154BFAEA6(L_13, L_15, L_16, Dictionary_2_set_Item_m270330E4DF54B386E40D0D8ADB494D2154BFAEA6_RuntimeMethod_var);
+				// break;
 				goto IL_0088;
 			}
 
 IL_006f_1:
 			{
+				// foreach (var descriptor in descriptors)
 				bool L_17;
 				L_17 = Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB((&V_0), il2cpp_rgctx_method(method->rgctx_data, 9));
 				if (L_17)
@@ -11581,6 +11622,7 @@ IL_006f_1:
 
 IL_0088:
 	{
+		// }
 		return;
 	}
 }
@@ -11599,9 +11641,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_DestroySubsystem_TisRunti
 	RuntimeObject* V_0 = NULL;
 	Type_t* V_1 = NULL;
 	{
+		// T subsystem = GetLoadedSubsystem<T>();
 		RuntimeObject* L_0;
 		L_0 = GenericVirtualFuncInvoker0< RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), __this);
 		V_0 = L_0;
+		// if (subsystem != null)
 		RuntimeObject* L_1 = V_0;
 		if (!L_1)
 		{
@@ -11609,11 +11653,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_DestroySubsystem_TisRunti
 		}
 	}
 	{
+		// var subsystemType = typeof(T);
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_2 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(method->rgctx_data, 2)) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
 		Type_t* L_3;
 		L_3 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_2, NULL);
 		V_1 = L_3;
+		// if (m_SubsystemInstanceMap.ContainsKey(subsystemType))
 		Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C* L_4 = (Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C*)__this->___m_SubsystemInstanceMap_4;
 		Type_t* L_5 = V_1;
 		NullCheck(L_4);
@@ -11625,6 +11671,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_DestroySubsystem_TisRunti
 		}
 	}
 	{
+		// m_SubsystemInstanceMap.Remove(subsystemType);
 		Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C* L_7 = (Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C*)__this->___m_SubsystemInstanceMap_4;
 		Type_t* L_8 = V_1;
 		NullCheck(L_7);
@@ -11634,6 +11681,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_DestroySubsystem_TisRunti
 
 IL_0035:
 	{
+		// subsystem.Destroy();
 		RuntimeObject* L_10 = V_0;
 		NullCheck((RuntimeObject*)L_10);
 		InterfaceActionInvoker0::Invoke(2 /* System.Void UnityEngine.ISubsystem::Destroy() */, ISubsystem_t20F8E773FE1B915229571E9F78B3BC95C9E1CB67_il2cpp_TypeInfo_var, (RuntimeObject*)L_10);
@@ -11641,6 +11689,7 @@ IL_0035:
 
 IL_0040:
 	{
+		// }
 		return;
 	}
 }
@@ -11657,16 +11706,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* XRLoaderHelper_GetLoadedSubsys
 	Type_t* V_0 = NULL;
 	RuntimeObject* V_1 = NULL;
 	{
+		// Type subsystemType = typeof(T);
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_0 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(method->rgctx_data, 0)) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
 		Type_t* L_1;
 		L_1 = Type_GetTypeFromHandle_m6062B81682F79A4D6DF2640692EE6D9987858C57(L_0, NULL);
 		V_0 = L_1;
+		// m_SubsystemInstanceMap.TryGetValue(subsystemType, out subsystem);
 		Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C* L_2 = (Dictionary_2_tCDC65F572855EBDD1C12CEE33EBEBE0131F60C9C*)__this->___m_SubsystemInstanceMap_4;
 		Type_t* L_3 = V_0;
 		NullCheck(L_2);
 		bool L_4;
 		L_4 = Dictionary_2_TryGetValue_mE7515E1F06C8648C4ABD1F212BF6419F50241682(L_2, L_3, (&V_1), Dictionary_2_TryGetValue_mE7515E1F06C8648C4ABD1F212BF6419F50241682_RuntimeMethod_var);
+		// return subsystem as T;
 		RuntimeObject* L_5 = V_1;
 		return ((RuntimeObject*)Castclass((RuntimeObject*)((RuntimeObject*)IsInst((RuntimeObject*)L_5, il2cpp_rgctx_data(method->rgctx_data, 1))), il2cpp_rgctx_data(method->rgctx_data, 1)));
 	}
@@ -11682,9 +11734,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_StartSubsystem_TisRuntime
 	}
 	RuntimeObject* V_0 = NULL;
 	{
+		// T subsystem = GetLoadedSubsystem<T>();
 		RuntimeObject* L_0;
 		L_0 = GenericVirtualFuncInvoker0< RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), __this);
 		V_0 = L_0;
+		// if (subsystem != null)
 		RuntimeObject* L_1 = V_0;
 		if (!L_1)
 		{
@@ -11692,6 +11746,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_StartSubsystem_TisRuntime
 		}
 	}
 	{
+		// subsystem.Start();
 		RuntimeObject* L_2 = V_0;
 		NullCheck((RuntimeObject*)L_2);
 		InterfaceActionInvoker0::Invoke(0 /* System.Void UnityEngine.ISubsystem::Start() */, ISubsystem_t20F8E773FE1B915229571E9F78B3BC95C9E1CB67_il2cpp_TypeInfo_var, (RuntimeObject*)L_2);
@@ -11699,6 +11754,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_StartSubsystem_TisRuntime
 
 IL_001a:
 	{
+		// }
 		return;
 	}
 }
@@ -11713,9 +11769,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_StopSubsystem_TisRuntimeO
 	}
 	RuntimeObject* V_0 = NULL;
 	{
+		// T subsystem = GetLoadedSubsystem<T>();
 		RuntimeObject* L_0;
 		L_0 = GenericVirtualFuncInvoker0< RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), __this);
 		V_0 = L_0;
+		// if (subsystem != null)
 		RuntimeObject* L_1 = V_0;
 		if (!L_1)
 		{
@@ -11723,6 +11781,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_StopSubsystem_TisRuntimeO
 		}
 	}
 	{
+		// subsystem.Stop();
 		RuntimeObject* L_2 = V_0;
 		NullCheck((RuntimeObject*)L_2);
 		InterfaceActionInvoker0::Invoke(1 /* System.Void UnityEngine.ISubsystem::Stop() */, ISubsystem_t20F8E773FE1B915229571E9F78B3BC95C9E1CB67_il2cpp_TypeInfo_var, (RuntimeObject*)L_2);
@@ -11730,6 +11789,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void XRLoaderHelper_StopSubsystem_TisRuntimeO
 
 IL_001a:
 	{
+		// }
 		return;
 	}
 }
@@ -11737,6 +11797,7 @@ IL_001a:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* XRManagerSettings_ActiveLoaderAs_TisRuntimeObject_m9672E32C32CA1F82DB7CE86C58E9B91C5A8983CD_gshared (XRManagerSettings_t7923B66EB3FEE58C7B9F85FF61749B774D3B9E52* __this, const RuntimeMethod* method) 
 {
 	{
+		// return activeLoader as T;
 		XRLoader_t80B1B1934C40561C5352ABC95D567DC2A7C9C976* L_0;
 		L_0 = XRManagerSettings_get_activeLoader_mFB3B679005792D3DF871EAA7120DD86DCA1D5DEA_inline(__this, NULL);
 		return ((RuntimeObject*)Castclass((RuntimeObject*)((RuntimeObject*)IsInst((RuntimeObject*)L_0, il2cpp_rgctx_data(method->rgctx_data, 0))), il2cpp_rgctx_data(method->rgctx_data, 0)));
@@ -17069,6 +17130,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void IntPtr__ctor_m4F9A9B80F01996
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR XRLoader_t80B1B1934C40561C5352ABC95D567DC2A7C9C976* XRManagerSettings_get_activeLoader_mFB3B679005792D3DF871EAA7120DD86DCA1D5DEA_inline (XRManagerSettings_t7923B66EB3FEE58C7B9F85FF61749B774D3B9E52* __this, const RuntimeMethod* method) 
 {
 	{
+		// public XRLoader activeLoader { get; private set; }
 		XRLoader_t80B1B1934C40561C5352ABC95D567DC2A7C9C976* L_0 = __this->___U3CactiveLoaderU3Ek__BackingField_10;
 		return L_0;
 	}

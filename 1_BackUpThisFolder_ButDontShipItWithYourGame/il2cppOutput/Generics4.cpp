@@ -20746,6 +20746,7 @@ IL2CPP_EXTERN_C  ValueTask_1_t7C5C39AB5B4A0ABA07AC934800D43DED916F9215 AsyncValu
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BaseAndroidConnectionImpl_1_get_IsConnected_m23ECFBAD95969418B9E617745D5DA52499496770_gshared (BaseAndroidConnectionImpl_1_tA4C3B58831127678BDD16C6E068700A8CC5FFF88* __this, const RuntimeMethod* method) 
 {
 	{
+		// public bool IsConnected => serviceConnection.IsConnected;
 		AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB* L_0 = (AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB*)__this->___serviceConnection_2;
 		NullCheck(L_0);
 		bool L_1;
@@ -20764,16 +20765,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseAndroidConnectionImpl_1__ctor_m5CFBE
 		s_Il2CppMethodInitialized = true;
 	}
 	{
+		// public BaseAndroidConnectionImpl(string className)
 		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2((RuntimeObject*)__this, NULL);
+		// fragmentClassName = className;
 		String_t* L_0 = ___className0;
 		__this->___fragmentClassName_0 = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___fragmentClassName_0), (void*)L_0);
+		// serviceConnection = new AndroidServiceConnection(className, "getService");
 		String_t* L_1 = ___className0;
 		AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB* L_2 = (AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB*)il2cpp_codegen_object_new(AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB_il2cpp_TypeInfo_var);
 		NullCheck(L_2);
 		AndroidServiceConnection__ctor_m5A0B7A0B00C1B3958A6E6456813F4DC174F87183(L_2, L_1, _stringLiteral8F0C2972A0E12806BDD25F10EEAE5E29FF56227A, NULL);
 		__this->___serviceConnection_2 = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___serviceConnection_2), (void*)L_2);
+		// }
 		return;
 	}
 }
@@ -20789,15 +20794,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseAndroidConnectionImpl_1_Connect_m067
 	}
 	AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* V_0 = NULL;
 	{
+		// serviceConnection.Connect(version);
 		AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB* L_0 = (AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB*)__this->___serviceConnection_2;
 		String_t* L_1 = ___version0;
 		NullCheck(L_0);
 		AndroidServiceConnection_Connect_m72A36FAF67CE01E6B4579F4CF6174497D7149449(L_0, L_1, NULL);
+		// var serviceInstance = serviceConnection.GetService();
 		AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB* L_2 = (AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB*)__this->___serviceConnection_2;
 		NullCheck(L_2);
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_3;
 		L_3 = AndroidServiceConnection_GetService_m10C8E3DC881909650EFBFFDC577236CEDDF11860(L_2, NULL);
 		V_0 = L_3;
+		// if (null == serviceInstance)
 		AndroidJavaObject_t8FFB930F335C1178405B82AC2BF512BB1EEF9EB0* L_4 = V_0;
 		if (L_4)
 		{
@@ -20805,6 +20813,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseAndroidConnectionImpl_1_Connect_m067
 		}
 	}
 	{
+		// throw new Exception("Unable to get service connection from " + fragmentClassName);
 		String_t* L_5 = (String_t*)__this->___fragmentClassName_0;
 		String_t* L_6;
 		L_6 = String_Concat_m9E3155FB84015C823606188F53B47CB44C444991(((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral65F83D8584323F66D3B44BDE578333389A7B6D62)), L_5, NULL);
@@ -20816,6 +20825,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseAndroidConnectionImpl_1_Connect_m067
 
 IL_0031:
 	{
+		// service = (T) Activator.CreateInstance(typeof(T), serviceInstance);
 		RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B L_8 = { reinterpret_cast<intptr_t> (il2cpp_rgctx_type(method->klass->rgctx_data, 0)) };
 		il2cpp_codegen_runtime_class_init_inline(Type_t_il2cpp_TypeInfo_var);
 		Type_t* L_9;
@@ -20830,6 +20840,7 @@ IL_0031:
 		L_13 = Activator_CreateInstance_mDBC65647828F8A3D3E63807B5AEA4A4ECDE397E6(L_9, L_11, NULL);
 		__this->___service_1 = ((RuntimeObject*)Castclass((RuntimeObject*)L_13, il2cpp_rgctx_data(method->klass->rgctx_data, 1)));
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___service_1), (void*)((RuntimeObject*)Castclass((RuntimeObject*)L_13, il2cpp_rgctx_data(method->klass->rgctx_data, 1))));
+		// }
 		return;
 	}
 }
@@ -20837,14 +20848,18 @@ IL_0031:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BaseAndroidConnectionImpl_1_Disconnect_mB2193E1A3D66A2F285F9DA739210A4A3AAACD61F_gshared (BaseAndroidConnectionImpl_1_tA4C3B58831127678BDD16C6E068700A8CC5FFF88* __this, const RuntimeMethod* method) 
 {
 	{
+		// service.Shutdown();
 		RuntimeObject* L_0 = (RuntimeObject*)__this->___service_1;
 		NullCheck((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)L_0);
 		BaseServiceBinding_Shutdown_mFA621C6F626DA54E41EB6F1E88B8AF18D5F9907F((BaseServiceBinding_tC22454D6751C375356A18F7AAD46982DBC0B2F01*)L_0, NULL);
+		// serviceConnection.Disconnect();
 		AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB* L_1 = (AndroidServiceConnection_t41C34BBF24CE0E2DFB04DB1E9412B64D36E134FB*)__this->___serviceConnection_2;
 		NullCheck(L_1);
 		AndroidServiceConnection_Disconnect_m6793307BEC56F3840BEE62436171D42C7036A8B5(L_1, NULL);
+		// service = null;
 		RuntimeObject** L_2 = (RuntimeObject**)(&__this->___service_1);
 		il2cpp_codegen_initobj(L_2, sizeof(RuntimeObject*));
+		// }
 		return;
 	}
 }
